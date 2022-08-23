@@ -1,0 +1,351 @@
+Las reglas sirven para respetarlas! Hay que saber cuando respetarlas y cuando romperlas.
+
+Hay que saber uqe las computadoras siguen reglas cuando programamos! No tienen juicio.
+
+Cual es la esencia de la programacion? 19:20
+
+Durante todas las clases que vamos a tener, no vamos a perder de vistar aprender la esencia de la programacion desde la programacion funcional.
+
+Como definimos programa? https://youtu.be/CFuvy-w9o6I?t=1899
+Definicion usual:
+	- una secuencia de instrucciones para lograr un objetivo
+
+Problema:
+* En programacion funcional no hay instruciones.
+
+Programa definicion fidel:
+	Descripcion de una solucion a un problema ejecutable por algun mecanismo automatizable.
+
+	* Solo para problemas computacionales.
+	* Esta definicion muestra la naturaleza dual de los programas.
+
+*Problemas computacionales: https://youtu.be/CFuvy-w9o6I?t=2557
+Que tipo de problemas computacionales?
+	- transformacion de informacion
+		* datos de entradas en datos de salida
+	- interacion con el medio
+		* interfaces, perifericos, otros proghramas
+	- En la primera aprte del curso solos nos ocuparemos del 1ro de los tipos: transformacion de informacion.
+
+*No existen datos aleatorios*
+---------------------------------------
+NATURALEZA DE LOS PROGRAMAS: https://youtu.be/CFuvy-w9o6I?t=2733
+Los pogramas son ejecutados por maquinas
+	- ejecutable hace mencion a este hecho.
+	* un programa es una descripcion ejecutable.
+Los programas son leidos y entendidos pro personas
+	- descripcion hace mencion a este otro
+
+La dualidad es personas/maquinas.
+
+* Un programa en tanto descripcion https://youtu.be/CFuvy-w9o6I?t=2782 
+- Importa que describe y no como se ejecuta. Cuando yo leo un programa, no me importa como se ejecuta sino que solucion propone. ==>> alto nivel(cerca de la forma en la que personas pensamos)
+
+Nosotros vamos a uilizar otro termino  en esta materia. Denotacional. Vamos a decir que cuando pensamos en los programos en tantos descripciones, estamos favoreciendo una vision denotacional.
+
+Al pensar el prorgama como un texto, puede haber mas de una solucion escrita de otra forma.
+
+Equivalencia de programas => concepto fundamental a lo alrgo de la materia. Para decir que dos programa sson diferentes, describen la solucion al mismo problema. 
+
+------------------------------- 
+*La otra cara de la naturaleza de los programas https://www.youtube.com/watch?v=CFuvy-w9o6I
+
+Cuando hablamso del ejecutable, importa como ejecuta y los recursos que usa. La eficiencia, la memoria y la velocidad del prorgamas, son cuestiones que tiene  que ver con otro aspecto. Es lo que solemos decir bajo nivel => decimos que es una vision operacional.
+
+- Dos programas equivaletnes denotacionalmente pueden ser diferentes operacionalmente! Debemos definir el modelo de ejecucion. Para poder enteder lo que estamos haciendo, debemos poder definir el modelo de ejecucion.
+En resumen este es el modelo de la ejecucuin de las maquinas imperativas https://youtu.be/CFuvy-w9o6I?t=3057
+
+--------------------
+
+EQUIVALENCIA DE PROGRAMAS * https://youtu.be/CFuvy-w9o6I?t=3098
+
+Que imprime este programa en java? https://youtu.be/CFuvy-w9o6I?t=3426 
+
+f(3) + f(3) = en el ejemplo da 9
+2*f(3) = da 8 
+
+-------------------
+
+Precisamos un modelo de computo  * https://youtu.be/CFuvy-w9o6I?t=3555  
+que se concentre en el aspecto denotacional de los programas
+
+El modelo foil noiman es un lindo modelo para la parte operacional de los programas. 
+
+* Los programadores somos pesimos ejecutando codigo. Por eso lo hacen las maquinas!
+
+* De nada sirve tener la respuesta correcta si la preguntas esta equivocada. https://youtu.be/CFuvy-w9o6I?t=3701
+
+Si queres podes seguir programando en java feliz tomandote tu pastilita azul.
+Bardear a los lenguajes de programas objetos o imperativos es aprte del show.
+
+Pastillia azul == no aprenden mas funcional y son felices
+Pastillita roja == aprendemos el modelo de computo funcional y empezamos a entender la esencia de la programacion incluyendo al mundo funcional. En la unq elejimos la pastilla roja por ustedes, queremos uq esean parte del mundo de la programacion de manera adecuada. 
+
+---------- 
+Que es lo que queremos describir? https://youtu.be/CFuvy-w9o6I?t=3961
+
+Que es un valor amtematico? una entidad abstracta, una idea. Las entidades abstractas no tienen una contraparte fisica.
+LO CONTRARIO DE REAL, ES LO IMAGINARIO.
+
+Real indistinto a fisico
+
+https://youtu.be/CFuvy-w9o6I?t=4145
+
+No hay manera de describir algo abstracto sin usar algo fisico* -> expresiones https://youtu.be/CFuvy-w9o6I?t=4242
+
+-------------
+
+Como podemos describir los valoes?  
+
+No te lo puedo dar, pero si comunicartelo atraves de una expresion. 
+
+Idea de valides (2da clase)
+
+Expresiones -> https://youtu.be/CFuvy-w9o6I?t=4325
+
+Denotar sinonimo de describir* 
+
+La propuesta de fidel, es usar terminos que nos obliguen a pensar. Al decir denotar, nos obliga a prestar atencion a que quiere decir 'denotar'.
+
+* Los coloeres van a usarse mucho para denotar valores al principio de la amteria.
+
+--------------------------
+
+Modelo de computo funciona * https://youtu.be/CFuvy-w9o6I?t=4605
+
+2 es el numero dos. Esto es identificar al numeral con el numero, es darle la misma identidad. Yo voy a utilizar el simbolo como el valor. 
+
+Los simbolos a nsootros nos sirven, las palabras nos sirven para transmitirla para usarla como vehiculos de las ideas.
+Aprender a leer es aprender a decodificar los simbolods(letras)
+
+Verde => abstracto
+Rojo => concreto
+
+*De lo que va tratar la amteria https://youtu.be/CFuvy-w9o6I?t=4869
+
+Los simbolos son lo que llamamos convencionales, en el sentido de que hay que poner una convencion apra saber el significado.
+
+Mismo que en la noctunar, aprender a cuestionarse lo que ahcemos y a cuestionar o que otros dicen que hagamos.
+
+No aprender a consumir todo como pollito con la boca abierta.
+
+Expresiones atomicas * https://youtu.be/CFuvy-w9o6I?t=5316
+La unica manera de conocer el significado de una expresiona tomica, es conocerla de antemano.
+
+.................
+
+Cuando dos expresiones distintas denoten el mismo valor. yo soy a decir que son equivalentes y voy a usar el = (en verde)
+
+Las equivalencias tienen propiedades que los matematicos llaman reflexiva, simetrica, transitiva.
+Transitividad* https://youtu.be/CFuvy-w9o6I?t=5586
+
+Cuando dos cosas son equivalentes es indistinto cual elijo para hablar de ellos... en principio.
+
+Desupues vamos a ver que equivalentes denotacional no queire decir que me de lo mismop cualquiera.
+
+*La equivalencia es un aspecto denotacional y por eso aparece en color verde.
+
+-----------------------------------------------
+
+FUNCIONES* https://youtu.be/CFuvy-w9o6I?t=6354
+
+Las funciones son una forma de transformar datos.
+Lo que necesitamos son expresiones que denoten funciones.
+Vamos a usar 3 formas diferentes:
+	- funciones anonimas https://youtu.be/CFuvy-w9o6I?t=6466
+	* Es una descripcion completa de la informacion para entender la funcion.
+	
+Como se escriben?
+Ej: /x -> x+x => esto se lee asi 'soy la funcion que transforma el dato de entrada 'x' en el dato denotado por la expresion x+x"
+
+La segunda forma de expresion para funciones usa nombres que deben definirse:
+	- Se requiere dar una definicion(una definicion no es una expresion por si misma)
+	* una definicion es parte del lenguaje. Me permetie darle sentido a esta expresion doble.
+
+*barra invertida contrario a esta '/' se lee lambda.
+
+Caules reglas deben cumplir las ecuaciones? 
+	- deben ir en un archivo de texto plano de extesion .hs
+	- deben estar orientadas https://youtu.be/CFuvy-w9o6I?t=6711
+
+doble x = x+x -> nombre del argumento 'doble' seguido del argumento de la funcion 'x' y luego del = una expresion que dado que x tiene un significado esto tiene significado.
+
+Al reves no tendria esto!
+
+un script de hasckel puede tener muchas definiciones.
+
+-------------
+
+Como se usa una funcion? https://youtu.be/CFuvy-w9o6I?t=6865 *
+
+Como se escribe la aplicacion de una funcion?
+	- la expresion argumento va luego de la funcion
+	ej: doble 2, cuadruple 3, (/x->x+x) 1
+	- la aplicacion denota el dato transformado
+	ej: doble 2 = 4 
+
+regla de beinit https://youtu.be/CFuvy-w9o6I?t=7047 *
+
+Las funciones son valores. El programa para mi es un dato, un valor una idea que quiero trabjar.
+
+------------------------
+
+Mundo denotacional https://youtu.be/CFuvy-w9o6I?t=7164 *
+
+Continuar aca https://youtu.be/CFuvy-w9o6I?t=7257 *
+
+-----------------
+
+Vision denotacional*  https://youtu.be/CFuvy-w9o6I?t=7314
+	- lo que importa es el signifcado y no la expresion
+	- la escribimos con el simbolo = (igual verde)
+
+La equivalencia es nuestra forma de conocer el significado*
+
+Esto es mas del aspecto matemativo. Nosotros queremos repcuperar el aspecto computacional.
+
+*Mecanismo de ejecucion: reduccion https://youtu.be/CFuvy-w9o6I?t=7339
+
+La reduccion dice "cuando encuentres el lado izquierdo de una definicion, reemplazalo por el lado derecho" Esto se va epetir hasta que no lo encuente mas veces.
+
+Ejemplo reduccion*  https://youtu.be/CFuvy-w9o6I?t=7389
+
+El parametro es como una pieza de rompecabeza que yo tengo qe descubrir cual es el dibujito para poder usarla en otro lado.
+
+Ejemplo con mas passo https://youtu.be/CFuvy-w9o6I?t=7516 
+
+*Color azul quiere decir 'Vision operacional' -> lo va ejecutar una maquina? 
+Azul significa que no hay ninguna intervension humana en el asunto. Es absolutamente mecanico.
+
+*Verde lo hacemos las personas. Si la persona lo hacer no necesariamente las maquinas pueden hacerlo. 
+
+La reduccion solo cambia expresiones equivalentes. Por lo tanto, el resultado de la ejecucion tiene el mismo signifcado que el original. 
+
+-----------------
+Visiones denotacional y operacional*  https://youtu.be/CFuvy-w9o6I?t=7748
+
+*La reduccion solo trabja con expresiones atomicas 
+
+Cuando hablamos de funciones, el resultado no me alcanza para saber si son iguales. Esto hace que la equivalencia denotacional sea tan relevante a la hora de conocer la idea de un programa.
+
+Los programas son muhco mas interesante que los numeros.
+
+Entender si dos programas son iguales, es dificil* No es mecanico, tenog que pensar. Con que herramientas tengo que pesnar? herramienta denotacional, igualdad denotacional. Que necesito apra que la equivalencia funcione bien? que la suma y el producto funciono como se espera.
+
+*En la clase 6 vamos a ver mas de equivalencia denotacional.
+
+Que ejemplos de expresiones equivalentes que no se vinculan por reduccionpueden encontrarse? La nocion de vincular por reduccion es, una reduce a la otra o las dos reducen a algo comun.
+
+https://youtu.be/CFuvy-w9o6I?t=8322 *
+
+vision denotacional de una pelocia* 
+
+Tienen que haber ciertas condificiones de ejecucion para poder entender la vision operacional. Con las funciones pasa lo mismo.
+
+...-----------------------------
+
+Ideas de funciones de orden superio * https://youtu.be/CFuvy-w9o6I?t=8547
+
+Las funcione tambien son valores. Esto significa que pueden ser argumentos o resultados de funciones. 
+
+*terreno desconocido. https://youtu.be/CFuvy-w9o6I?t=8588
+
+********************************
+https://youtu.be/CFuvy-w9o6I?t=8664
+Cuando nos pregunten cual es la vision denotacional? tenemos que decir que transforma.
+
+Cuando nos digan cual es la visiion operacional? tenemos que decirle que devuelve
+********************************
+
+Sintaxis: https://youtu.be/CFuvy-w9o6I?t=8695
+	- La palabra 'where' permite definiciones locales
+
+- twice twice  ->> D:
+
+- twice doble https://youtu.be/CFuvy-w9o6I?t=8798
+
+Una funcion transforman informacion de un gran conjunto de entrada a uno de salida*
+
+La primera temproada de la materia, es aprender herrameintras para poder responder estas preguntas.
+
+Como escribo la funcion?* https://youtu.be/CFuvy-w9o6I?t=8932
+
+Si no es raro que el argumento sea una expresion sea una expresion no-atomica? xque es raro que lo sea una funcion?* https://youtu.be/CFuvy-w9o6I?t=9130
+
+3ra forma de describir una funcion* https://youtu.be/CFuvy-w9o6I?t=9225
+	- Como una expresion no atomica que describe una funcion.
+	- una funcion equivalente
+
+*La idea de funcion anonima como lambda. Pocos de los lenguajes modernos admiten expresiones complejas para hablar de una funcion. https://youtu.be/CFuvy-w9o6I?t=9319
+
+Necesito herramientas adecuadas para poder hacer lo que quiero. Los lenguejes tradicionales las herramientas que tienen son para ciertas cosas. 
+Las funciones anonimas son solo un aspecto de la programacion funcional. No me alcanzan con funciones anonimas para hbalar de funcional.
+Para que un lenguaje sea funcional https://youtu.be/CFuvy-w9o6I?t=9417
+	- No tiene que tener distintion entre el resultado de una  expresion que da una funcion y la funcion en si. 
+	* secreto de la programacion funcional.
+
+--------------
+Explicacion de (twice doble) 2 -> https://youtu.be/CFuvy-w9o6I?t=9691*
+
+La tecnica para sacar el significado de una funcion de alto orden con reduccion* https://youtu.be/CFuvy-w9o6I?t=9781
+
+---------------
+
+Xque twice es una funcion de orden superior?* https://youtu.be/CFuvy-w9o6I?t=9958
+	- twice es una funcion que toma una funciona y la transforma en otra.
+
+* La idea de funcion de orden superior https://youtu.be/CFuvy-w9o6I?t=10074
+	- que toma una funcion como argumento y devuelven una funcion como resultado
+
+Se puede pensar una estratificacion en ordenes:
+	- Orden 2 -> transformacion de funciones de orden 1
+	- Orden 1 -> transformacion de datos basicos
+	- Orden 0 -> datos basicos 
+
+Si toda la vida trabjaste con orden1(java) son equivalentes a guerreros. Gente que camina por la tierra de forma segura, necesita una armadura y una espada grande.
+
+La idea de orden2 es similar a los poderes de un mago.
+El mago tiene herramientas diferentes a la de un guerrero y es muhco mas poderoso que un guerrero.
+
+Ser buen mago es mucho mas dificil que ser buen guerrero, pero a la larga el mago es mas fuerte. 
+
+Nosotros somos buenos guerreros, pero somos re petes como mago. Siempre en orden 1.
+
+En ese sentido, la programacion funcional es similar a la magia. Se basa en la magia derramar. Esta se basa en conocer el nombre verdadero de cada cosa, de entidad y objeto.
+
+*Puedo usar twice para transformar twice? https://youtu.be/CFuvy-w9o6I?t=10558
+
+g' 2 -> g prima de 2
+
+reduccion de ((twice twice) doble ) 2* https://youtu.be/CFuvy-w9o6I?t=10750 
+
+*NO USAR LA INTUICION DE LA CUAL ESTAMOS ACOSTUMBRADO(ORDEN1), NOS VA IR MAL!*
+
+Hay que ser obsecivo con las reglas que vimos. Aprendamos a pensar el valor de algo denotacional y a escribirlo cuando dos cosas denotacional son iguales.
+
+Aprender todas las herramientas y aprender como funciona este mundo. Con estas definiciones. 
+No recurrir aca a la intuicion de otros lenguajes. La intuicion que tenemos es deformada, incorrecta, fuera de contexto en este lugar(funcional).  
+
+Reveer -> https://youtu.be/CFuvy-w9o6I?t=10923 *
+
+Las primeras 6 clases son caminar a oscuras.
+"como yo necesito y que aprendan a entender lo que está pasando la propuesta es piensen denotación al
+piensen operacional y piensen las dos cosas al mismo tiempo y eligiendo cual piensan en qué momento
+escriban su código con precisión respeten las reglas no hagan las cosas a
+las apuradas no traten de abreviar pasos si ustedes tratan de hacer las cosas rápido se pierden detalles en el camino
+que les van a ser necesarios después hay una manera fácil de saber cuánto de actuar es de toay de doble"
+
+
+---------------------
+
+Programacion funcional
+
+- Lenguaje funcional puro * https://youtu.be/CFuvy-w9o6I?t=11407
+En el mundo funcional puro, no hay memoria. Psar el dato "guardado" a traves de argumentos.
+- Programa funcional * https://youtu.be/CFuvy-w9o6I?t=11494
+
+--------------
+
+Resumen * https://youtu.be/CFuvy-w9o6I?t=11558
+
+Sino tenemos hecho el 75% de los cuestionarios hechos no podemos presentarnos al parcial.
