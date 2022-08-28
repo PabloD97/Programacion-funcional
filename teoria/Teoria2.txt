@@ -1,0 +1,154 @@
+----------------SISTEMAS DE TIPOS--------------
+
+Denotacional significaba lo que estaba del lado abstracto-
+Operacional es una nocion mas asociada a la maquina, la ejecucion que nos provee.
+
+*Los parentisis van bien cuando uno tiene un nombre y despues un argumento.
+
+Toda combinacion de simbolos es una expresion? Si y no, tine que tener sentido
+
+*APRENDER SINTAXIS DE HASKELL
+
+cómo me doy
+cuenta de mi lenguaje de expresiones cuáles son buenas y cuáles son malas? https://youtu.be/bIx0Zi8YjMY?t=748
+
+*EXPRESIONES DE TIPOS https://youtu.be/bIx0Zi8YjMY?t=1017
+
+https://youtu.be/bIx0Zi8YjMY?t=1245 *Estas  hbalan de valore sy las otras de conjunto.
+
+Como escribir la relacoion entre los de arribas.
+
+2 :: Int (dos tiene tipo Int) "La expresion 'e' tiene tipo 'A'"
+/ x -> x+x :: Int -> Int
+
+*Pertenece es de color verde, por eso no decimos pertenece https://youtu.be/bIx0Zi8YjMY?t=1454
+
+2 ::(Esto va en azul) Int(esto va en rojo al igual que el numero)
+
+https://youtu.be/bIx0Zi8YjMY?t=1565 'e' no quiere decir letra 'e', sino que hay que reemplazarlas por una expresión válida del conjunto indicado.
+
+Las variables en esta tippgrafia son especiales.
+- Se llaman metavariables xque se usan para hablar del lenguaje y NO SON variables del lenguaje.
+
+*cada meta variable habla de un conjunto de expresiones y saco un elemento. Ese elemento reemplaza la metaviarable
+
+*Como determinar cuando se cumplen? para eso establezco un sistema de reglas https://youtu.be/bIx0Zi8YjMY?t=1698
+
+Existen unos asistentes de pruebas.
+ basado en estos sistemas que se llaman de tipos dependientes. https://youtu.be/bIx0Zi8YjMY?t=1764
+
+Son extremadamente precisos(COQ, Adda, etc) estos lenguaje se utilizan para formalizar las matematicas para hacer demostraciones. Con estos programas yo puedo demsotrar que mi programa nunca falla(dificiles de programar)
+
+*Ejemplo de marcapasos https://youtu.be/bIx0Zi8YjMY?t=1841
+
+
+https://youtu.be/bIx0Zi8YjMY?t=1972 al utilizarlos pierdo presicion. Ya que hay una parte de los programas que pueden tener sentido, pero el mismo no los tomas
+
+Mambo de turing https://youtu.be/bIx0Zi8YjMY?t=1995 *¨
+No hay una forma mecanica de garantizar que un programa de maquina funcione bien.
+
+Siempre voy a encontrar pedazos de codigo que fallen*
+
+* Problema con f 2 y  su tipo https://youtu.be/bIx0Zi8YjMY?t=2321 
+
+Sistema tipo union que sirve para arreglar este caso https://youtu.be/bIx0Zi8YjMY?t=2457
+
+Vamos a saber haskel a medias. En estructura lo usabamos a nivel elemental. En estructura lo usabamos en orden 1 y 0, un uso basatnte pobre de haskell.
+Vamos a usarlo con un sistema de tipos mas rico. Haskeel es como la pistola de rick, nos sirve para ir a otros universos.
+
+Nocion de tipado * https://youtu.be/bIx0Zi8YjMY?t=2851 
+
+La nocion de tipo va previa a la redudcion de expresion. No voy aceptar reducir una expresion a menoss que el sistema  de tipo la haya aceptado primero. Se conoce como sistema de tipos fuertes. 
+
+Tipado previo a al reduccion es esto * https://youtu.be/bIx0Zi8YjMY?t=3007 
+
+Vamosa a definir un sistema llamado Hindley-Milner simple es la base de los lenguajes funcionales. En particular es la base del sistema de haskell y lo
+que tiene haskell es varias extensiones encima del sistema de Hindley-Milner simple.
+
+Puuede exixstir los tipos basicos tipo Int, Bool,etc. 
+Compuestos 
+	- A -> B, (A,B), etc
+* A -> B (meta variable)
+
+Uy, no! Mira esto: Int -> (Bool -> Bool), (Int, (Bool, Int -> Int)), (Int -> Int) -> (Int -> Int)
+
+Un lenguaje de tipos mucho mas rico y complejo, que el que veiamos ene structura.
+ 
+* Cnatidad infima de sistemas de tipos https://youtu.be/bIx0Zi8YjMY?t=3286
+
+Xque nos quedamos con Hindley-milver simple? es en la base de todos los lenguajes
+funcionales modernos y entonces si uno estudia inglés mílner está estudiando
+muchos de los lenguajes modernos basados en funciones de orden superior.
+
+* Lo que vamos a hacer en esta practica, es mirar algunos tipos complicados y buscar elementos de esos tipos.
+
+*Las reglas para calcular la asignacion https://youtu.be/bIx0Zi8YjMY?t=3430
+
+n :: Int (la 'n' es una metavariable)
+'n' en este caso habla de los numerales.(4,5,8) 2+2 NO ES UN NUMERAL!
+
+e :: Int
+e' :: Int
+e + e' :: Int
+
+= ( en negro) definiciones
+
+* Conjunto de definiciones: acuérdense que el conjunto de definiciones no es exactamente el conjunto de expresiones. porque no puedo
+poner uno más uno acá si puedo poner doble de equis pero no puedo poner uno más uno .
+
+Ecuaciones buenas son orientadas, yo conozco el tipo del lado derecho e.g. d = e.
+
+f :: A -> B } todas son metavariables
+e :: A      }
+f e :: B
+* si yo tengo una expresión conformada por la aplicación de algo a otra cosa. Esto tiene un tipo B, siempre y cuando la primera de las partes de la expresiontenga un tipo funcion y la segunda de las partes de la expresion tenga el mismo tiepo que los que los paramametros de esa funcion. 
+
+Básicamente me está diciendo el argumento que le pasó en la función tiene que ser del mismo tipo de los parámetros que esta función espera. Y el resultado de la función es del mismo timpo que la función retorno.
+
+* Como voy a entender las metavariables https://youtu.be/bIx0Zi8YjMY?t=3929
+Voy a entenderlas como piezas de un rompecabezas. Como los nombres de las cosas que tengo que poner en esos cuadrados. Básicamente esto es como un rompecabezas y lo que yo tengo que jugar a encontrar cuando tengo una expresión es cómo calza.
+
+Quien lo trabajo a esto de milner https://youtu.be/bIx0Zi8YjMY?t=3984 * 
+
+------------------
+
+Seguir aca https://youtu.be/bIx0Zi8YjMY?t=4559 *
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
