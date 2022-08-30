@@ -1,0 +1,58 @@
+Equivalentes: 
+
+La aplicacion de funciones(llamar a una funcion 
+poniendo un espacio despues de ella y luego escribir sus parametros) 
+tiene la maxima prioridad. Ejemplo.
+
+succ 9 + max 5 4 + 1
+(succ 9) + (max 5 4) + 1
+
+Como dividir con 4 `div` 2
+
+------------
+
+Listas. EN haskell las lsitas son del mismo tipo
+
+Concatenar dos Listas
+['w','o'] ++ ['o', 't']
+"hello" ++ " " ++ "world"
+
+Agregar algo al principio de la lista 
+- 'U':"n gato" -> "Un gato"
+- 5:[3,4,2,321] -> [5,3,4,2,321]
+
+*Las listas dentro de las listas pueden tener diferentes tamaños pero no 
+pueden tener diferentes tipos. De la misma forma que no se puede contener caracteres
+ y números en un lista, tampoco se puede contener listas que contengan listas de caracteres y 
+ listas de números.*
+
+-------------
+
+Rangos en listas [1..20] -> devuelve una lista del 1 al 20
+
+-----------
+
+Ya se! Vamos a escribir nuestra propia versión de length. La llamaremos length'.
+
+length' xs = sum [1 | _ <- xs] * ' _ <- xs' * significa que para cada uno de xs, tomaremos 
+uno y  lo reemplazaremos por 1
+
+_ significa que no nos importa lo que vayamos a extraer de la lista, 
+así que en vez de escribir el nombre de una variable que nunca usaríamos, 
+simplemente escribimos _. La función reemplaza cada elemento de la lista original por 1 y 
+luego los suma. Esto significa que la suma resultante será el tamaño de nuestra lista.
+
+-----------------------
+
+Tipos y claes de tipos
+
+Int y Integer, Int es mas eficiente, sirve para numeros enteros
+
+El tipo de 'head'
+:t head -> head :: [a] -> a
+
+'a' en este caso es una variable de tipo.
+Funciones que tienen tipo 'a' son llamadas funciones polimorficas.
+
+* Funcion infija por defecto son las funciones que estan compuestas solo 
+por caracteres especiales: +,-,*,==
