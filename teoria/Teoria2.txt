@@ -114,40 +114,151 @@ Quien lo trabajo a esto de milner https://youtu.be/bIx0Zi8YjMY?t=3984 *
 
 Seguir aca https://youtu.be/bIx0Zi8YjMY?t=4559 *
 
+----------------
+
+Sistema Hindley-Milner simple Eejemplo 1 https://youtu.be/bIx0Zi8YjMY?t=4568
+
+(\x->x+x)2 Esta expresion tiene tipo?
+
+como es una aplicación de funciones tengo que apliocar la regla de la aplicación
+y entonces tengo que tengo que usar si usa la regla de la aplicación
+f :: A ->(flecha roja) B 
+e :: A      
+f e :: B
+
+La flecha roja esta fija xque los simbolos rojos son fijos, no metavariables
+
+La flecha indica que el lado izquierdo de una aplicacion es una funcion
+
+* Analisis de lso componentes https://youtu.be/bIx0Zi8YjMY?t=4733
+
+Se debe verificar que las A son iguales
+
+Xque pusimos en el lambda que es de tipo Int->Int? Xque el tipo de lambda es una funcion de enteros en enteros
+	      A      A
+f \x->x+x :: Int -> Int
+e 2	  :: Int {A}
+		B
+(\x->x+x) 2 :: Int
+
+fíjate que todos los lambdan tienen tipo flecha. presenta el lado derecho de la flecha es
+el lado de la expresión resultado y el lado izquierdo de la flecha es el argumento.
+
+--------------
+
+Ejemplo 2 https://youtu.be/bIx0Zi8YjMY?t=4848 *
+
+Regla de la suma 
+e :: Int
+e':: Int
+e+e':: Int
+
+2 	:: Int
+False 	:/: Int
+2 + False :: Int -> Erro esta mal. '2 + False' no tien tipo
+
+----------------
+Ejemplo 3 https://youtu.be/bIx0Zi8YjMY?t=4938 * 
+
+Tipar definiciones doble x = x+x 
+
+doble ::
+doble x ::
+(Espacio en blanco entre la funcion y el argumento 'aplicacion')
+x + x :: Int 
+
+https://youtu.be/bIx0Zi8YjMY?t=4999 determinar los recurados
+
+* Propagar la informacion https://youtu.be/bIx0Zi8YjMY?t=5115 
+
+Reveer esta parte * https://youtu.be/bIx0Zi8YjMY?t=5129 REGLA DE LA DEFINICION
+
+Si d =  e
+y  e :: A
+	entonces d :: A
 
 
 
+-------------------------------
+
+Ejemplo 4 https://youtu.be/bIx0Zi8YjMY?t=5789v  
+
+*Forma sin expandir las regas https://youtu.be/bIx0Zi8YjMY?t=5813
+
+El paso mas complejo del link de arriba https://youtu.be/bIx0Zi8YjMY?t=5905 * 
+
+-----------
+
+Ejemplo 5 https://youtu.be/bIx0Zi8YjMY?t=6188 *
+La meta variable nos obliga a elegir un tipo y solo uno, no es variable 
+
+---------------------
+
+Problema de Hindley-Milner simpler https://youtu.be/bIx0Zi8YjMY?t=6216 *
+
+Twice siempre tiene tipo, pero si twice doble tiene tipo, entonces twice not no lo tiene. 
+
+
+https://youtu.be/bIx0Zi8YjMY?t=6467 * Medio confuso esta parte. 
+Hizo dos twice distintos pero cond istintos tipos. 
+Un twiceI:: (Int -> Int) -> (Int -> Int)
+twiceB:: (Bool -> Bool) -> (Bool -> Bool)
+
+Esto es un problemon. C++ tiene una habilidad para mejorar eso, pero es medio tonto.
+
+En mecanismo para esto es tener *variables de tipo*
+A(NEGRA) es una metavariable
+a(roja) es una expresion
+
+Variables (para polimorfismo) https://youtu.be/bIx0Zi8YjMY?t=6914
+	- a, b, c
+
+La variable es como un vale, puedo utilizarla para cambiar de tipo.
+
+twice :: (a -> a) -> (a -> a) 
+se lee "twice es una función que dado una función que transforme elementos de algún tipo 'a' en otros elementos de ese tipo 'a', retorno a otra función de ese mismo tipo."	
+
+El tipo 'a' puede ser instanciado a otros tipos.
+
+https://youtu.be/bIx0Zi8YjMY?t=7206 *hacer un twice polimorfico.
+
+Definicion de *polimorfismo parametrico* https://youtu.be/bIx0Zi8YjMY?t=7253 
+
+
+"una cosa importante es que el polimorfismo es una característica del sistema de tipos si no hay un sistema de tipo no tiene sentido hablar de polimorfismo"
+
+Polimorfimos en funcional -> una funcion de muchos tipos
+En objetos(tambien conocido como sobrecarga de mensajes) -> un mensaje a muchos metodos. El mensaje es polimorfico
+
+----------------
+*
+Ejemplo 5: twice twice arranca https://youtu.be/bIx0Zi8YjMY?t=7490 termina https://youtu.be/bIx0Zi8YjMY?t=8051
+*
+
+Anes de emepzar a definir tipos, debo ver que regla aplicar*
 
 
 
+--------------
 
+Los sistemas de tipos me permiten detectar errores de form temprana. Tambien es una pseudo documentacion.
 
+El sistema de java tiene problemas de tipos, como el de decirle a una clase vos sos de este tipo cuando enrealidad no lo es.
 
+-------------
 
+Twice de delta https://youtu.be/bIx0Zi8YjMY?t=9096 * 
 
+------------
 
+Aprender la sintaxis de haskell(operadores, caseOf,etc) 
+Sitema HM 
 
+"cuando un programa pase el sistema de tipos el 90% de los errores comunes dejaron de estar"
 
+-----------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+No hacer un if para tipos, es propenso a errores
 
 
 
