@@ -1,0 +1,327 @@
+CURRIFICACION*
+
+Similitudes de suma' (x,y) = (suma +) y
+	- Ambas expresan la suma de dos entereros.
+
+suma' :: Int -> (Int -> Int)
+suma' (x,y) = x+y
+
+suma :: Int -> (Int -> Int)
+suma x = f where f y = x+y
+
+El argumento de succF * https://youtu.be/gthqrFWG6oA?t=511
+
+El mundo fisico no se comporta igual que el mundo compotacional 
+
+_------------
+
+Idea de Currificacion(currying)
+- es una correspondencia uno a uno entre cada función que toma
+una dupla como argumento o sea que toma varias cosas juntas y una función que retorna a funciones
+intermedias que completan el trabajo.
+
+Pensando en una definicion generica.
+
+f' :: (A,B) -> C
+f' (x,y) = e
+
+f :: A -> (B->C)
+f x = g where g y = e
+
+La unica cuestion entre ambas, es que una toma todo junto y la otra toma las cosas de a una.
+
+Lo interesante de la currificacion, es que cada vez que  existe una funcion que toma todas las cosas juntas. En funcion extoy absolutamente seguro, que existe una funcion que toma las cosas de a una.
+
+Ejemplos de la correspondencia que es la  currificacion
+* https://youtu.be/gthqrFWG6oA?t=1095
+swap :. (a,b) -> (b,a)
+swap (x,y) = (y,x) 
+
+riap :: a -> (b -> (b,a))
+riap x = h
+	where h y = (y,x)
+
+* metavariables, las variables que estan por fuera del lenguaje y que me sirven para hbalar de cosas del lenguaje.
+
+la "e" sirve para cualquier expresion
+
+------
+Definicion de currificacion
+Correspondencia uno a uno entre dos conjuntos de funciones
+(Por cada f' hay una f, y viceversa)
+
+Explicacion grafica
+https://youtu.be/gthqrFWG6oA?t=1333 *
+-----
+
+Historia de la currificacion https://youtu.be/gthqrFWG6oA?t=1418 *
+
+Existe una correspondencia entre conjuntos. 
+Se podra definir entre ellos?
+Claro
+	- curry :: ((a,b)->c) -> (a -> (b,c))
+	
+	- uncurry :: (a -> (b->c)) -> ((a,b) -> c)
+
+------
+
+Reveer https://youtu.be/gthqrFWG6oA?t=1775 *
+Se puede demostrar que
+	- curry (uncurry f) = f para todo f (Si yo agarro una funcion que toma las cosas de a uno, la transformo en su vecina que transforma que toma todas las cosas juntas. Y a esa que toma todas las cosas juntas o sea uncurry f y la transformo usando carry en una funcion que toma las cosas de uno, la funcion que obtengo es la misma con la que arranque.)
+	- uncurry (curry f') = f' para todo f'
+
+"en matemáticas cuando yo tengo dos conjuntos para el cual existen dos funciones que cumplen estas dos
+propiedades decimos que hay una correspondencia uno a uno entre los conjuntos"
+
+Se conoce como isomorfismo entre dos conjuntos.
+
+* Cuando veamos una funcion de tipo "a -> (b-c)" se dice que esta currificada
+- Una funcion f' se currifica mediante la 'curry', (curry f') :: a -> (b->c)
+
+De la funcion que toma todo de tipo "(a.b) -> c" se dice que esta "no currificada"
+- f se descurrifica con uncurry, (uncurry f) :: (a,b)-> c
+
+*Como pensar la descurrificacion y la currificacion https://youtu.be/gthqrFWG6oA?t=2255  
+
+-------------------- 2DA PARTE DE LA CLASE -----------------------
+
+Como escribo funciones currificada? 
+* where es incomodo- Porqe? https://youtu.be/gthqrFWG6oA?t=2454 * 
+
+https://youtu.be/gthqrFWG6oA?t=2660 como considera la funcion 
+- suma5' :: (Int,Int,Int,Int,Int) -> Int
+- suma5 (x,y,z,v,w) = x+y+z+v+w
+
+como seria la version currificada?
+- suma5 :: Int -> (Int ->(Int ->(Int->(Int->Int))))
+- suma5 x = sum4
+	where sum4 y = sum3
+		where sum3 z = sum2
+			where sum2 v = sum1
+				where sum1 w = x+y+z+v+w
+
+-----------------
+
+Analicemos las siguientes definiciones
+	doble x = x+x   vs.   dobleF = /x -> x+x * aca define
+Se ve que doble = /x -> x+x o sea doble = dobleF
+
+Cuando defino " = " esta en negro
+Cuando afirmo cosas que dependen de la definicion que estas dos definiciones
+
+* https://youtu.be/gthqrFWG6oA?t=2950 yo puedo pasar un argumento del lado izquierdo como parámetro del lado
+derecho"
+
+-------
+
+Como podemos escribis una funcion currificada?
+	
+	- twice f ? g where g x = f(f x)
+"Pasando" la 'x' de 'g', podemos definir
+	- twice f = g where g = /x -> f (f x)
+O sea twice f = /x -> f (f x)	
+
+* la funcion anonima trae su propio parametro
+
+Y "pasando" la 'x' para el otro lado https://youtu.be/gthqrFWG6oA?t=3174
+	(twice f) x = f (f x)
+
+* https://youtu.be/gthqrFWG6oA?t=3324 poder usar una funcion anonima como resultado de una funcion anonima
+
+* Como leer twice https://youtu.be/gthqrFWG6oA?t=3524
+
+-------------- continar aca https://youtu.be/gthqrFWG6oA?t=3621 ---------------
+
+* https://youtu.be/gthqrFWG6oA?t=3666
+
+Podemos usar las reglas apra currificar suma5 
+( Pasar un argumento 
+- f x = e
+- f = /x -> e) 
+- suma5 :: Int -> (Int ->(Int ->(Int->(Int->Int))))
+- suma5 x = \y -> (\z->(\v->(\w -> x+y+z+v+w)))
+- suma5 = \x->(\y -> (\z->(\v->(\w -> x+y+z+v+w))))
+
+Tambien se puede hacer a la inversa
+- suma5 x = \y -> (\z->(\v->(\w -> x+y+z+v+w)))
+- (suma5 x) y = \z->(\v->(\w -> x+y+z+v+w)))
+etc...
+- ((((suma5 x) y) z)v) w = x+y+z+v+w
+
+* Terrible la diferencia con el where de suma5.
+* Como se lee "suma5 es una funcion que toma un entero y devuelve una funcion que toma un entero y devuelve una funcion que toma un entero y devuelve una funcion que toma un entero y devuelve una funcion que toma un entero y devuelve un entero"
+* Como sabemos que suma5 aplica a x? por la regla de aplicacion.
+
+Es un quilombo? si! Pero los funcionales que saben ablar en frances la sacan mas facil.
+
+* Como evitamos usar tantos parentesis? 
+- Con la convencion de notacion! Si es binaria, tiene que haber una sola, si hay dos, empeza por la izquierda.
+Si hay dos operaciones, arranca por la izquierda. Entonces "10- 3- 2" pasa a dar 5 y no 5 o 9
+
+- La resta es "asociativa a izquierda"
+- Y "asociativa a derecha"? si hay dos operaciones iguales, van las dos juntas.
+- Y "no asociativa"? DEBO PONER LOS PARENTESIS SI O SI! No puede haber dos simbolos seguidos sin aprentesis.
+
+Aplicacion de la funcion "  " un espacio vacio. Esto tambien es un simbolo
+
+En el caso de ser una funcion que toma dos parametros, esta endria que ser "no currificada" y sus dos parametros se pasarian como un par.
+----------------
+
+La flecha " -> " es asociativa derecha
+O sea, A -> (B -> C) = A -> B -> C
+
+f :: A -> B -> C  es  f :: A -> (B -> C)
+f x y = e	      (f x) y = e
+
+Definicion de suma5(currificada
+- suma5 :: Int -> Int ->Int ->Int->Int->Int
+- suma5 x y z v w = x+y+z+v+w
+
+Comparar con la version no currificada
+- suma5' :: (Int,Int,Int,Int,Int) -> Int
+- suma5' (x,y,z,w,v) = x+y+z+v+w
+
+Si eciste una, eciste la otra. Eso nos da la currificacion
+"Uso la version currificada y leo la version no currificada" Esto no es correcto https://youtu.be/gthqrFWG6oA?t=5365 *
+
+
+* https://youtu.be/gthqrFWG6oA?t=5139
+
+* Leemos "en frances" a lo Libertad
+	- "Trata de decir suma5' pero pensar en suma5! dale, a ver, dale!" 
+
+
+Suma5 toma solo un argumento. Caulquier funcion de haskel toma un solo argumento.
+Cuando decimoq ue toma varios argumento, realmente toma el conjunto de una tupla.
+
+------------------------
+
+Ventajas de la currificacion.
+
+- Mayor expresividad
+- aplicacion parcial
+- modularidad
+	- Se hace en porciones mas pequeñas
+	- Para expresar mejor las ideas
+	- es mas facil hacer refactori(tratamiento de codgo)
+
+MAYOR EXPRESVIDIAD https://youtu.be/gthqrFWG6oA?t=6735 *
+- Considerar la "derivida" de analisis matematico.
+	Es una funcion que transforma funciones
+
+"tomo la derivada de una función y la aplicó directamente como si fuera una función"
+
+--------------
+
+* https://youtu.be/gthqrFWG6oA?t=7032 derive f 
+
+----------
+
+* El dia que haga analisis, debo pensarlo de manera curry
+
+* El que trajo al primer compu en argentina en 1954 https://youtu.be/gthqrFWG6oA?t=7396
+
+* Podemos poner los parentesis para destacar la idea de que el resultado es una funcion.
+derive :: (Float -> Float) -> (Float -> Float)
+
+o tambien pueden sacarse, para mostrar que el resultado final es un numero 
+derive :: (Float -> Float) -> Float -> Float
+
+En cambio el primer parentesis es necesario. 
+"como estos argumentos no los puedo sacar porque estas funciones me la tienen que dar no la estoy produciendo eso. Pero la cuestión es que una ventaja de tener acá dos funciones es que yo puedo usar un parámetro y devolver una función o puedo darle dos parámetros para devolver un número"
+
+Com seria la version no currificada? 
+- derive :: (Float -> Float,Float)  -> Float 
+
+------------------------
+
+VENTAJA: APLICACION PARCIAL
+- La funcion derive se puede aplicar a u solo argumento
+	- drive f = \x ->(f(x+h)-f x)/h where h = 0.0001
+
+* La aceleracion es la derivida de la velocidad
+
+Como seria la derivada n-esima? (Usar n veces derive)
+	- deriveN :: Int -> (Float -> Float) -> (Float -> Float)
+	- deriveN 0 f = f 
+	- deriveN n f = deriveN (n-1) (derive f) * aplicacion parcial de derive
+
+"porque es interesante la aplicación parcial porque realmente me da el poder de
+agarrar una función que parecería tomar muchas cosas y le doy menos
+y porque es copado"
+
+https://youtu.be/gthqrFWG6oA?t=8328
+* derive' no se puede aplicar aprcialmente, o le doy dos cosas o no le doy ninguna.
+
+https://youtu.be/gthqrFWG6oA?t=8450 por eso es dificil de pensar en los lenguajes que no tienen aplicacion parcial.
+
+"una cosa divertida de tener función de aplicación parcial es que puedo escribir y escribir una función que aplica a otras muchas veces" 
+
+Xqye many tiene 3 argumento si yo pongo que tiene dos?
+
+many :: Int -> (a -> a) -> (a->a)
+many 0 f x = ...
+
+Donde 0 es el inte, f es (a->a) y x es -> (a
+
+"y por qué los paréntesis de la derecha puedo no ponerlos si no quiero. y porque nos puse? y para mostrarte quién venía de una función de transforma funciones"
+
+Con decirte que ete libro usamos currificacion. Se supone que vos con eso sabes qie cuando diga dos, no son dos, son tres o n.
+
+Como defino many? la idea es haciendo recursion
+
+many 0 f x = x
+many n f x = f (many (n-1) fx) * https://youtu.be/gthqrFWG6oA?t=8776
+
+Tambien si quiero remarcar el hecho que devuelve una funcion, puedo poner.
+many 0 f = \x -> x
+many n f = \x -> f (many (n-1) fx)
+
+twice = many 2		many 1 = apply  
+
+para todo 'n', 		derivenN n = many n derive
+
+Esto de arruba no se puede escribir sin aplicacion parcial.
+
+* https://youtu.be/gthqrFWG6oA?t=9344
+many 4 = twice twice = \f -> (\x -> f ( f ( f (f x))))
+many 3 = \f -> \x -> f ( f ( f x ))
+
+En hackel twice toma un argumento, en frances toma dos argumentos.
+
+*Que tipo tiene https://youtu.be/gthqrFWG6oA?t=9493
+	twice :: (a->a) -> a -> a
+	twice doble :: Int -> Int
+	twice doble 2 :: Int
+
+Aca ya se fue a la mierda *
+https://youtu.be/gthqrFWG6oA?t=9687
+
+Como se expli (twice twice) doble 2? * https://youtu.be/gthqrFWG6oA?t=9752
+	Recordemos el tipado..
+		twice :: (a' -> a') -> a' -> a'
+		twice :: (a->a) -> (a->a)
+		---------------------
+		twice twice :: (a->a) -> a -> a
+		* a' <- a -> a
+
+Tres argumentos, dos argumentos https://youtu.be/gthqrFWG6oA?t=10127
+La aplicaion parcial funciona invisivilisando parentesis
+
+--------------------
+ 
+Podemos reconocer una funcion currificada solo por su tipo? * https://youtu.be/gthqrFWG6oA?t=10434
+* Yo voy a decir que una funcion esta currificada, si toma sus argumentos de a uno. Lo que entiende fidel
+
+La currificacion puede ser cuestion de interpretacion
+
+* https://youtu.be/gthqrFWG6oA?t=11749 reveer los ultimos 30' 
+
+........................
+
+RESUMEN 
+- Nos muestra la importancia de escribir de forma clara. La importancia de la notacion
+- Ventajas
+	- mucha mayor expresividad
+	- Aplicacion parcial
+	- Modularidad

@@ -77,7 +77,7 @@ Un lenguaje de tipos mucho mas rico y complejo, que el que veiamos ene structura
 * Cnatidad infima de sistemas de tipos https://youtu.be/bIx0Zi8YjMY?t=3286
 
 Xque nos quedamos con Hindley-milver simple? es en la base de todos los lenguajes
-funcionales modernos y entonces si uno estudia inglés mílner está estudiando
+funcionales modernos y entonces si uno estudia Hindley-milver está estudiando
 muchos de los lenguajes modernos basados en funciones de orden superior.
 
 * Lo que vamos a hacer en esta practica, es mirar algunos tipos complicados y buscar elementos de esos tipos.
