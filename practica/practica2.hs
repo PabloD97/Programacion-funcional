@@ -34,5 +34,3 @@ appPar (f, g) = h
 appDist f = g 
   where g (x, y) = (f x, f y)  
 
-funcion f = g
-  where g y x= f(x+y) 
