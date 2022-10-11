@@ -1,0 +1,293 @@
+Son macanismos para manejar el infinito.
+
+Iduccion o recursion https://youtu.be/9piJQAaWCpk?t=635 * 
+
+Que es la induccio? que es la recursion?
+
+Recursion no es solo cuando una funcion se llama a si misma.
+
+La pregunta de la metia * que es la escencia de la programacion?
+
+-----------------------
+https://youtu.be/9piJQAaWCpk?t=861 * 
+Induccion estructural:
+	- La induccion estructural es una tecnica que responde las 3 preguntas planteadas.
+		- Permite
+			- Definir tipos algebraicos con infinitos elementos.
+		- Definir ecuaciones orientadas qeu usan la funcion que se esta definiento del lado
+		- Probar propiedades sobre elementos de estos conjuntos.
+
+Operacionalmente lo llamamos recursion estructural
+
+En el mundo denotacional, lo llamamos Induccion.
+
+Son dos caras de la misma moneda.
+
+Demostrar un torema con un lema, es como hacer una tarea con una subTarea.
+
+---------------
+
+Vamos a dejar haskell de lado por el momento en esta clase.
+
+https://youtu.be/9piJQAaWCpk?t=1043 *
+
+El conjunto aleph(se usa en matematica para habalr del infinito) 
+
+	- Definir el conjunto aleph de cadenas de Ss termianadas en Z
+	- Como hacerlo constructivamente? https://youtu.be/9piJQAaWCpk?t=1164 *
+	- Podrian ponerse condiciones al conjunto buscado..
+		- Condicion 1: Z tiene que estar en aleph
+		- Condicion 2: si 'c' esta en (conjunto)aleph, entonces Sc tiene que estar en (conjunto)aleph. 
+		* la trampa de esta en esta condición es que un sí
+entonces es verdadero cuando por cada situación posible donde el antecedente
+sea verdadero el consecuente también  * 
+
+Analicemos algunos conjutnos posibles y vamoas descartando * https://youtu.be/9piJQAaWCpk?t=1519 
+
+Que debo compluir para que la Condicion 2 sea cierta? https://youtu.be/9piJQAaWCpk?t=1670 *
+Que no haya otro valor que tenga la forma de 'C' con una 'S' adelante. O sea, cS.
+
+* El testigo que fallo. Si no hay testio(conjunto vacio) entonces cuple la condicion2.
+
+*El infinito tiene una propiedad, en la cual si yo le agrego algo, no crece
+
+Ejemplo del infinito con hotoles https://youtu.be/9piJQAaWCpk?t=2083 *
+
+* Los 3 puntitos para arriba significa que sigue sumando, por 
+
+Sifgue habidno muchos validos! https://youtu.be/9piJQAaWCpk?t=2261 * 
+	- Que diferencia al que se busca?
+		- esta contenido en todos los que cumplen las propiedades
+	- Condicion adicional: es el menor de los que cumplen las anteriores.(no le sobran elementos)
+
+El conjutno que cumple, es el siguiente 
+{	
+	.
+	.	
+	.
+	SSZ
+	SZ
+	Z
+}
+
+
+Que caracteristica tiene esta afimacion?
+	- Una condicion es una afirmacion: Condicion 1
+	- Una condicion es una implicacion: Condicion 2
+	- La condicion extra provee unicidad 
+
+ qué pasa si dos conjuntos tienen conjunto de incluido el otro y el otro está incluido en éste? Son el mismo *
+
+Todo lo de arriba es un Intento de definicion "inductiva" del conjunto aleph(signo ebreo)
+
+-------------------
+
+* No vamos a decir que la condicion esta alpedo, vamos a decir que no es productiva
+
+Una definicion por induccion necesita reglas productivas.
+Si se puede sacar y no afecta, no era productiva.
+
+Ahora sí vamos a definir lo que es definido un conjunto por inducción estructural(llamados reglas) https://youtu.be/9piJQAaWCpk?t=2841 *
+
+	- Una o varias reglas base: afirmaciones directas
+	- Una o varias reglas inductivas: implicaciones(productivas)
+	- Una unica condicion adicional: pedir que sea el menor/ el mas chico de todos/que este uncluido en los demas. 
+
+https://youtu.be/9piJQAaWCpk?t=2932 Las reglas *
+
+----------------------------------------------------------
+|Una definicion de un conjunto por induccion estructural |
+----------------------------------------------------------
+|Una o varias reglas base: afirmaciones directas         |
+----------------------------------------------------------
+|Una o varias reglas inductivas: implicaciones           |
+----------------------------------------------------------
+|Una unica condicion adicional: pedir que sea el menor   |
+----------------------------------------------------------
+
+* ESTO DE ABAJO ES MUY IMPORTANTE * 
+Lo vamos a escribir de otra manera:
+	- Reglas base: Z esta en S	
+	- Reglas inductivas: si e,...,e' esta en S, entonces e(distinta) esta en S.
+	- El MENOR conjutno que cumple todas las reglas( en el sentido de la inclusion)
+
+--------------
+
+Tambien llamado conjunto inductivo https://youtu.be/9piJQAaWCpk?t=3208 *
+
+----------
+
+Definicion inductiva de aleph * https://youtu.be/9piJQAaWCpk?t=3230
+
+"cuando digo que esto es una definición inductiva inmediatamente voy a implicar que la regla del menor está presente"  
+
+	- Regla base: Z esta en el conjunto aleph
+	- Regla inductiva: si essta x en el conjunto aleph, enotnces Sc esta en conjunto aleph.
+
+- Regla para ver si un elemento es parte del conjunto? https://youtu.be/9piJQAaWCpk?t=3552 * 
+
+Fidel dice que usamos un monton esto. Desde el momento en el que empezamos a programar. Es el sintaxis error D: 
+El compilador del elnguaje tiene un componente. Este se llama Analizador sintatico o el parser. Dicjhas reglas son inductivas.
+
+----------------------
+
+Conjunto definido por INDUCCION ESTRUTUTAL  https://youtu.be/9piJQAaWCpk?t=3729 *
+
+-Cuantos elementos tiene? Infinito. Como se eso? debo agarrar el ultimo elemento y y validar si cumple las 3 reglas
+- Cuantas reglas satisface cada elemento del conjunto?  https://youtu.be/9piJQAaWCpk?t=3929 *
+	- Puede un elemento no satifascer ninguna regla? no, no seria el menor
+	- Puede satisfacer mas de una? No, son reglas productivas
+
+Cada elemento satisface exactamente UNA REGLA!
+	- O bien una regla base(elemtno base)
+	- O bien una regla inductiva(elemento inducitvo)
+		(y en ese caso hay optros elementos que lo justifican: sus partes: e.g. c es parte de Sc, por regla inductiva)
+
+Se puede usar las reglas para ordenar elementos? https://youtu.be/9piJQAaWCpk?t=4215 * 
+	- Los elementos base son los mas chicos
+	- Un elemento inductivo es mas grande que sus aprtes 
+
+Orden "es parte de" https://youtu.be/9piJQAaWCpk?t=4308 * }
+https://youtu.be/9piJQAaWCpk?t=4448 *
+
+--
+https://youtu.be/9piJQAaWCpk?t=4520 *
+Puede havber elementos de tamaño infinito? 
+	- o sea, con infinitas partes
+	- Suponiendo que si, qeu sucede si se remeve? Siguen valiendo todas las reglas.
+No hay elementos de tamaño INFINITO!
+	- O sea, ningun elemtno tiene infinitas partes.
+	- El orden "es parte de" es bien fundado.
+
+---------------------
+
+Conjutno definido por induccion estrutural
+- Que propiedades tiene?
+	- Tiene infinitos elemntos.
+	- Cada elemetno satisface exactamente una regla
+	- Se puede definri el orden "es parte de" 
+		- Y es bien fundado(no hay cadenas descendentes infinitas)
+	- No puiede haber elementos de tamaño infinito
+		- se puede desarmar un elemento en todas sus partes y subpartes y terminar en algun momento.
+
+https://youtu.be/9piJQAaWCpk?t=4662
+
+
+
+https://youtu.be/9piJQAaWCpk?t=5907 * Ya no entiendo nada
+---------------------------------
+
+Regla inductiva 2* https://youtu.be/9piJQAaWCpk?t=6015
+
+https://youtu.be/9piJQAaWCpk?t=6049 y esto??
+
+Que significa ###$▲//@#$▼////@▼//? https://youtu.be/9piJQAaWCpk?t=6214 * NADA! Solamente siguen la aplicacion de las reglas.
+
+Definicion inductiva de BE https://youtu.be/9piJQAaWCpk?t=6347 * 
+
+Tod el chirimbolo esta en BE, xque lo puedo descomponer *  https://youtu.be/9piJQAaWCpk?t=6507
+
+Tiene pinta de logica proposicional, pero estos no significan nada! 
+
+---------------------
+
+https://youtu.be/9piJQAaWCpk?t=6748 COMPARAR LAS DEFINICIONES XBE y de BE
+	- Que caracteristicas comparten?
+		- Misma cantidad de reglas base y misma cantidad de reglas inductivas con la misma cantidad de antecedentes cada una?
+	- Comparten las misma estructura! Si agarro un elemento de ambos conjuntos y los fragmento, seguro queden igual.
+
+-------------------------------------
+
+RECURSION ESTRUCTURAL https://youtu.be/9piJQAaWCpk?t=7097 *
+	- Como definir funciones sobre los elemtnos de un conjunto inductivo S?
+		APROVECHAR LA ESTRUCTURA
+		https://youtu.be/9piJQAaWCpk?t=7144 *  
+
+"las estructuras de datos en particular me dicen qué cosas pueden hacer con los datos y qué cosas no puedo hacer con los
+datos"*
+
+Hay estructuras mas y menos flexibles.
+
+DEFINICION DE UNA FUNCION POR RECURSION ESTRUCTURAL https://youtu.be/9piJQAaWCpk?t=7314 *
+- Por cada elemento base, dar el resultado directamente
+- Por cada elemento inductivo, dar el resultado usando el valor de transformar las partes con la misma funcion que se define.
+
+---------
+ Definir nhash, nbar :: XBE -> Int https://youtu.be/9piJQAaWCpk?t=7374 *
+
+Como saber cuantos # hay en el conjunto? https://youtu.be/9piJQAaWCpk?t=7494
+
+TENICA MISHAGUI = Recursion estrural(definir los casos y esas cosas de una funcion) https://youtu.be/9piJQAaWCpk?t=7687 *
+
+Y xque funciona la recursion estructural? https://youtu.be/9piJQAaWCpk?t=7745 *
+	- Por el orden "es parte de" es bien fundado!
+		- O sea, nunca se puede descomponer un elemento en sus partes de forma ininita
+		- De esta forma, la reduccion tiene que terminar.
+* Esto me garantiza que la recursion va temrinar!
+	- La condicion de ser el menor es esencial para esto.
+
+* LA INDUCCION FUNCIONA, XQUE NO PUEDO DESCOMPONER ELEEMNTOS PARA SIEMPRE Y XQUE NO LO PUEDO XQUE SI PUDIESE LA CONDICION DEL MENOR DEL CONJUNTO  INDUCTIVO NO SERIA TAL. SINO ES ASI, ENTONCES NO ES INDUCTIVA*
+
+* UNA FUNCION RECURSIVA ESTRUCTURAL TERMINA DE REDUCIR PARA TODOS LOS ELEMENTOS INDUCTIVOS *
+
+Gracuas a ka recursion estructural podemos hacer esto! https://youtu.be/9piJQAaWCpk?t=8120 * Pasar de un conjunto a otro
+--------------------------------
+
+USO EN UNA APLICACION * https://youtu.be/9piJQAaWCpk?t=8258
+
+fIJESEN QUE LAS REGLAS SON PRODUCTIVAS.
+
+Los numeros naturales son finitos * https://youtu.be/9piJQAaWCpk?t=8342
+
+Definicion inductiva de N
+	- Regla bse: O esta en N
+	- Regla inductiva: si n esta en N, entnces n+1 esta en N
+  Como seria una definicion de funcion sobre N?
+
+	f :: N -> T
+	f O :: = 
+	f (n+1) = f n 
+  Los numeros naturales son un conjunto inductivo estructural
+  Fucniones como factorial funciona por su estructura
+
+-------------------------------
+
+INDUCCION Y RECURSION EN HASKELL! https://youtu.be/9piJQAaWCpk?t=8744 *
+
+Definicion inductivas de estructuras? * https://youtu.be/9piJQAaWCpk?t=8834
+- Usando tipos algebraicos
+
+Como expresar casos base?
+- Usando constructores con o sin argumentos
+
+Como expresar casos recursivos?
+- Usando constructres que usen el mismo tipo definido como argumento.
+
+https://youtu.be/9piJQAaWCpk?t=8880 Ejmpelo de mapa, cofe y pirata.
+
+Quine es el caso base? EQUIS COFRE, xque no usa mapa!
+Quine es el casos inductivo? los que usen mapa(hacen la recursion)
+
+A los mapas que esten como argumentos de los casos inductivos los voy a llamar partes inductivas. Y a los argumentos que no sean mapa seran Partes NO inductivas.
+https://youtu.be/9piJQAaWCpk?t=8942
+
+VIOLETA -> COLOR DE LA INDUCCION * 
+
+Esto son arboles ?? Muy similar
+
+* TODOS LOS TIPOS DE HASKKEL TIENEN BOTTOM!
+
+Como reduce mapaInfinito? https://youtu.be/9piJQAaWCpk?t=9302 * 
+
+De aca en mas ignoraremos las demas partes por simplicidad.
+
+-------------------- 
+
+https://youtu.be/9piJQAaWCpk?t=9793 Definicion de la funcion tesoroEn :: Mapa -> Cofre
+
+----------
+
+Funcion comprimido https://youtu.be/9piJQAaWCpk?t=9918 * 
+
+Cuando decimos RECURSION ESTRUCTURAL siempre debe decirse sobre que estructura haremos la recursion esturtural. https://youtu.be/9piJQAaWCpk?t=10066 
+

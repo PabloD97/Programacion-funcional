@@ -1,0 +1,241 @@
+ un acrónimo es el término formado por la unión de elementos de dos o más palabras: teleñeco, de televisión y muñeco.
+
+Un acrónimo recursivo es aquel que, a diferencia de los acrónimos comunes, no parece explicar del todo su significado completo*
+
+La paradoja de cenon. AQuiles vs la tortuga
+
+https://youtu.be/b2gKGcvq_bo?t=1249 REPASO.
+
+Mundo operacional -> Recursion estructural-
+
+- Por cada ELEMENTO BASE, dar el resultado directamente
+- Por cada ELEMENTO INDUCTIVO, dar el resultado usando el valor de transformar las partes con la misma funcion que se define(al ser inductivo, no se puede descomponer para siempre).
+
+----------------------
+ 
+Principio de induccion estructural: https://youtu.be/b2gKGcvq_bo?t=1566 *
+
+Como aprovechar la estructura en demostraciones? 
+	- Expresando un principio de demostracion que la use
+		- Por cada regla base, un caso directo
+			- Casos base
+		- Por cada regla inductiva, un caso que utilice las partes
+			- Casos inductivos
+				- Hipotesis inductiva(una por cada antecedente)
+				- Tesis inductiva.
+
+Solamente despues de haber dicho que voy a usar el principio de induccion estructural, pueden decir caso base. 
+
+entonces para demostrar la propiedad sobre todo el conjunto. lo que tengo que demostrar es una serie de propiedades restringidas a casos particulares. Equivalente a "Sea n"
+
+--------------------------------------------
+|Principio de induccion estructural	    |
+|-------------------------------------------|
+|- Por cada ELEMENTO BASE, demostrar que la |
+| propiedad vale en él			    |
+|-------------------------------------------|
+|- Por cada ELEMENTO INDUCTIVO, demostrar   |
+| que la propiedad vale en él, suponiendo   |
+| valida la propiedad en las partes  	    |
+| inductivas(directas) 			    |
+---------------------------------------------
+
+https://youtu.be/b2gKGcvq_bo?t=1922 Ejemplo de Principio de induccion estructural * 
+Demostracion https://youtu.be/b2gKGcvq_bo?t=2058 * del ejemplo
+
+Lo que me permite el principio de induccion, es suponer que las hipotesis son verdaderas.
+
+Si la propiedad es falsa, puede fallar en cualquier lado.
+
+
+https://youtu.be/b2gKGcvq_bo?t=2440 * Para preguntar si cumple, tengo que pregutnar por todas si cumplen por si. Si alguna dice NO, la primera dice NO.
+
+Cuando voy a demostrar x es cualquier elemtno, pero en el caso inductivo, e1 es exactamente lo que elegi. 
+* La hipotesis inductiva que yo eleigo, es un solo elemtno.
+
+ 
+----------------------------------
+
+https://youtu.be/b2gKGcvq_bo?t=2716 * COMO ORGANIZAR UNA DEMOSTRACION POR INDUCCION?
+	- Se decide sobre que elemento usar la induccion estructural
+	- Se plantean TODOS los casos con sus hipotesis
+	- Se demuestran los casos planteados (em cualquier orde)
+		- En algunas  propiedades, pueden ser necesario hacer induccion en otro elemento dentro de la demosracion de algun caso.
+
+No todas las demsotracions son por induccion. (Normalmente las funciones recursiavas se hace demostracion por induccion). TENEMOS QUE INDICAR QUE VAMOS A HACER INDUCCION Y SOBRE QUE!
+
+
+Una vez hecho eso, se plantean todos los casos * . 
+	- Se plantean TODOS los casos con sus hipotesis
+
+y luego UN CASO POR CADA REGLA!
+
+https://youtu.be/b2gKGcvq_bo?t=2873 * RETROCEDER 30 SEG.
+
+Por que funciona el principio de induccion estructural?
+	- Porque se puede suponer que la propiedad vale sobre las partes de un eleemento inductivo?
+		- Xqeu no se puede desconponer infinitamentw!
+		- El orden "es partde de" es bien fundaro
+			- El unico punto de la demostracionn que se podria desconfiar tiene la misma estructura que toda la demostracion
+			- Como es puinto no se puede encontrar infinitamente, es seguro suponer que en las partes vale como ya demostrado.
+
+https://youtu.be/b2gKGcvq_bo?t=3155 * Retroceder 30seg
+
+----------------------------------------
+
+https://youtu.be/b2gKGcvq_bo?t=3189 Induccion matematica.
+
+Como aparece en matematica los casos https://youtu.be/b2gKGcvq_bo?t=3346 * 
+
+---------------------
+
+INDUCCION Y RECURSION EN HASKELL * https://youtu.be/b2gKGcvq_bo?t=3606
+
+Ejemplo de mapa : https://youtu.be/b2gKGcvq_bo?t=3622 comprimido *
+
+Como demostrar esta recursion usnado el principio de induccion estructural? https://youtu.be/b2gKGcvq_bo?t=3644 *
+
+Dem: sea m un mapa. Por ind. en la estructura de m
+Caso base, m =
+Caso ind.1, m =
+Caso ind.2, m = https://youtu.be/b2gKGcvq_bo?t=4332 *
+
+https://youtu.be/b2gKGcvq_bo?t=3841 *
+
+https://youtu.be/b2gKGcvq_bo?t=4439
+La subtarea en la demostracion se llama lema
+
+A veces nos dan los lemas, a veces hay mas de uno. 
+
+------------------------
+
+https://youtu.be/b2gKGcvq_bo?t=4974 * LISTAS: MOTIVACION
+
+LISTAS: DEFINICION https://youtu.be/b2gKGcvq_bo?t=5093 *
+
+Definicion inductiva de listas [a]
+	- Regla base: [] :: [a]
+	- Regla inductiva: si x :: a,xs :: [a], entonces x:xs :: [a]
+
+	- Que conjunto es [Int]? [1,23,21], 1:2:3[],10:[20,20], etc.
+
+Como expresar los ejemplos como instancias de [a]? https://youtu.be/b2gKGcvq_bo?t=5338
+
+type MapaL = [MapaNR]
+data MapaNR = RectorNr Int | GiroNR Dir
+
+- Se podran transformar mapas de MapaB en MapaL
+	- Por recursion en la estructura de MapaB
+
+RECURSION ESTRUCTURAL SOBRE LISTAS: https://youtu.be/b2gKGcvq_bo?t=5434 *
+
+Definicion inductiva de listas [a] 
+	- Regla base: [] :: [a]
+	- Regla inductiva: si x :: a,xs :: [a], entonces x:xs :: [a]
+  Funciona por recursion estructural sobre listas:
+	f :: [A] -> B
+	f [] = ...
+	f (x:xs) = ... x ... f xs ...
+
+-----------------------------------
+
+https://youtu.be/b2gKGcvq_bo?t=5563 APPEND de listas 
+	
+xs ++ ys = append xs ys 
+
+len (append xs ys) = len xs + len ys
+
+Prop: ¿Para todo xs e ys. len (append xs ys) = len xs + len ys=
+ 
+https://youtu.be/b2gKGcvq_bo?t=5801 * 
+
+Para demostrar esto, debo hacerlo con la primera de las listas. 
+
+Dem: https://youtu.be/b2gKGcvq_bo?t=5860 *
+
+Demostracion con la lista con elementos https://youtu.be/b2gKGcvq_bo?t=5976 * 
+
+* Casi es una particula negativa
+
+
+RECURSION ESTRUCTURAL SOBRE LISTAS https://youtu.be/b2gKGcvq_bo?t=6547 * 
+
+Cuales son los pasos adecuados para armar fnciones recursivas estructurales?
+	- Plantear el tipo de la funcion y proabr ejemplos
+	- Decidir usar recursion estructural
+	- Plantear el esquema de recursion estructural
+	- Definir lso casos inductivos
+	- Completar con los casos base
+	- Hacer ajustes de ser necesario
+
+Ejemplos https://youtu.be/b2gKGcvq_bo?t=6578 * 
+
+Com se elige los casos base en funciones de listas?
+	- Son el neutro de la operacion usada en el caso inductivo!
+	- Por eso se eligen al ultimo...
+
+-----------------------------
+
+https://youtu.be/b2gKGcvq_bo?t=6690 Mas funcioens sobre lista *
+
+Funcion maximun de una lista y last https://youtu.be/b2gKGcvq_bo?t=6917 esta operacion no tiene neutro. Por lo tanto debeo poner bottom
+maximun [] = error "no hay eleemntos"
+
+maximun (x:xs) = if null xs
+			then x
+			else x 'max' maximun xs
+
+https://youtu.be/b2gKGcvq_bo?t=7021 Estos usos NO son estructurales. Solo puedo usar recursion estructural en la cola. Nunca dije en la cola sola.
+
+Podemos ahorrarnos el caso bottom con patern maching
+
+maximun :: [a] -> a
+maximun (x: []) = x
+maximun (x:xs) = x 'max' maximun xs
+
+----------- 
+
+* La inducción sirve cuando la función es recursiva estructura. Si no es recursiva estructural, no puede usar inducción estructural.
+
+-------------------
+
+RECURSION PRIMITIVA  https://youtu.be/b2gKGcvq_bo?t=7335 *
+	- Es una forma similar a la estructural, con mas permisos.
+
+Usar el caso inductivo, sin la funcion aplicada. En la induccion estructural tenog que usar si o si las partes inductivas con la funcion aplicada. En la induccion primitiva tengo permiso tambien de uisar las partes inductivas sin usar la funcion. 
+
+---------
+
+Habra funciones recursivas que no sean estructurales?
+	- Si, hay funciones recursivas primitivas.
+		- Tambien termian por construccion.
+
+----------
+
+La pegunta cual es mejor, es una trampa! Siempre se debe decir "Depenede, para que"
+
+
+-------------------
+
+https://youtu.be/b2gKGcvq_bo?t=8748 REPRESENTACION DE DATOS *
+
+pODEMOS USAR EL LENGUAJE DE PROGRAMACION E INDUCCION ESTRUCTURAL PARA DAR SIGNIFICADOS A SIMBOLOS!
+
+Una idea piola, es poder darle significado a simbolos.
+
+El significado no esta atado a los simbolos!
+
+data N = Z | S N
+
+addN :: N -> N -> N https://youtu.be/b2gKGcvq_bo?t=8997 *
+addN Z	m = m
+add (S n) m = S (addN n m)
+
+El tratamiento es puramente simbolico(sin significado)
+
+Como demuestra esa funcion https://youtu.be/b2gKGcvq_bo?t=9240 *
+
+Sigue hablando de la minupulacion de simbolos https://youtu.be/b2gKGcvq_bo?t=9421 * 
+
+Nosotros somos los titiriteros, nosotros controlamos la matrix https://youtu.be/b2gKGcvq_bo?t=9724 *
+

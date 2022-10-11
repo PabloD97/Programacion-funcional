@@ -1,0 +1,369 @@
+Tipos algebraicos
+
+Motivacion de tipos algebraicos!
+
+* https://youtu.be/d-DocFmRdQc?t=643
+
+Ej: represnetar un dominio de helados
+	- un helado podria representarse con una tupla
+		(contenedor, (gusto1, gusto2, gusto3))
+
+
+Problemas:
+Como distuinguir elemento correctos de incorrectos? https://youtu.be/d-DocFmRdQc?t=928 * 
+
+La idea es describir un conjunto de datos. 
+
+Bottom es la capacidad de fallar.
+
+True y False son expresiones atomicas por eso estan escrito en rojo, xque son simbolos.
+
+Necesitamos una forma de definir nuevos tipos:
+	- poder darle nombre al tipo
+	- poder dar expresiones atomicas para sus elementos
+	- todo esto con sintaxis que mantenga las propiedades y sin perder la inferecia de tipos.
+
+"en general que se trata de mantener el mayor tiempo posible es que cuando yo agrego características tienen que ser agregadas de tal manera que sean armónicas con lo que ya existe que no alteren lo que hay"
+
+-------
+
+Como expresiones atomicas podemos suar identificadores con mayusculas(como true y false)
+	- Se denominaran constructores. 
+
+Cuando me pregunten que son true o false?= Respondemos, son constructores de boleanos. 
+Quiere decir que son expresiones atomcias del tipo boleanos.
+
+Lo que necesitamos son definciones, distintas a las de las funciones. Para realizar esto, debemos utilizar la palabra reservada data.
+
+Chocolate es Chocolate, asi como 2 es 2.
+
+data Gusto = Chocolate | DulceDeLeche | Sambayon | Frutilla | Pistacho
+
+https://youtu.be/d-DocFmRdQc?t=1990 esta abusando de la notacion grafica
+
+Verde = en el mundo de los valores
+
+https://youtu.be/d-DocFmRdQc?t=2075 Definicion de un tipo algebraico *
+
+data Gusto = Chocolate | DulceDeLeche | Sambayon | Frutilla | Pistacho
+	- La clausula data comienza la definicion
+	- Sigue el nombre del nuevo tipo
+	- Luego del igual, seprado por barras verticales (|) van los constructores
+		- Van conmayuscculas
+		- usaremos color rojo para distinguirlos
+
+Los contructores siempre van en rojo.
+
+------------------------
+
+https://youtu.be/d-DocFmRdQc?t=2266 
+	- Vasito (Aplicado a) DulceDeLeche
+
+	- Vasito 3 :/: es invalido
+	- Vasito Chocolate Sambayon :/: no es valido
+
+Los constructores, como reciben parametros, son funciones.
+
+El vasito en este caso, es una funcion que inclusco cuando lleva argumentos, sigue siendo una expresion atomica. No se puede reducir
+	- No tienen asociada una regla de reduccion. No forman redexes. Si comienza con mayuscula es una expresiona tomica. 
+
+Declaracion con argumentos en lso constructores: https://youtu.be/d-DocFmRdQc?t=2604 * 
+
+data Helado = 	Vasito Gusto 
+		| Cucurucho Gusto Gusto 
+		| Pote Gusto Gusto Gusto
+
+* donde gusto son los parametros que puede recibir
+* 'Gusto' es la definicion del dato
+
+ahora resulta que cuando digo vasito de espacio gusto estoy diciendo que vasito es una función que espera un gusto para devolver un helado de forma atómica "
+
+Vasito Bottom * es un vasito bomba
+
+en principio los constructores de un tipo del que branko son funciones no estrictas" *
+
+Bottom es un valor indefinido
+
+se le llama parcialmente definido
+no está no está totalmente definido no está indefinido sino que está
+parcialmente definid" 
+
+----------
+
+miHeladoFavorito :: Helado
+miHeladoFavorito = Cucurucho Chocolate 
+			     Sambayon
+	
+poteDeUnGusto :: Gusto -> Helado 
+poteDeUnGusto g = Pote g g g
+
+Por eso es mejor usar constructores parametrizados:
+	- La estructura captura la restriccion 
+
+--------------------------------
+
+Tipos algebraicos y alta orden: https://youtu.be/d-DocFmRdQc?t=3634 *
+
+chocoHelate :: (Gusto -> Helado ) -> Helado
+chocoHelate consH = consH Chocolate
+
+Y como reduce?
+
+chocoHelate poteDeUnGusto
+->			(def. de chocoHelate, con consH <- poteDeUnGesto)
+poteDeUnGusto Chocolate
+->			(def. de poteDeUnGusto, con g <- Chocolate)
+Pote Chocolate Chocolate Chocolate
+			(Esto es una formal normal. Es la manera operacional de decir expresiones atomicas)
+
+
+Y que denota? 
+	chocoHelate poteDeUnGusto = Pote Chocolate Chocolate Chocolate
+
+Chocolate :: Gusto
+Vasito Chocolate :: Helado
+Vasito :: Gusto -> Helado
+
+chocoHelate Vasito
+->
+Vasito Chocolate 
+
+chocolate Vasito = Vasito Chocolate
+
+------------------
+
+Cucurucho Chocolate Sambayon :: Helado
+* asocio a izquierda					f :: A -> B
+							e :: A
+							f e :: B 
+
+Cucurucho :: Gusto -> (Gusto -> Helado) 
+Chocolate :: Gusto 
+------------------------------------------------
+Cucurucho Chocolate :: Gusto -> Helado
+Sambayon :: Gusto
+------------------------------------------------
+(Cucurucho Chocolate) Sambayon :: Helado
+
+https://youtu.be/d-DocFmRdQc?t=4406 *
+
+Cucurucho :: Gusto -> (Gusto -> Helado)
+Pote :: Gusto -> (Gusto -> (Gusto -> Helado)
+
+
+-------------------
+
+chocoHelate (Cucurucho Sambayon) * devuelve un Cucurucho Sambayon Chocolate 
+->			(def. de chocoHelate, con consH <- (Cucurucho Sambayon))
+(Cucurucho Sambayon) Chocolate
+->			
+Cucurucho Sambayon Chocolate
+
+--------
+https://youtu.be/d-DocFmRdQc?t=4543 *
+chocoHelate Cucurucho Sambayon
+---------------------
+->
+Cucurucho Chocolate Sambayon
+			
+----------------------------
+
+John McCarthy https://youtu.be/d-DocFmRdQc?t=4599 *
+- Inventor del concepto garbage collection
+- Tambien propuso el nombre IA
+- Es el que propuso el uso de la recursion y de if-then-else en lenguajes de programacion, e introdujo el uso de funciones de orden de superior en programacion-.
+
+Robin Milner https://youtu.be/d-DocFmRdQc?t=4726 * es el que desarrollo el Hilmer Milner
+
+-----------------
+
+Pattern Matching https://youtu.be/d-DocFmRdQc?t=4833 *
+
+Podemos usar los contructores para preguntar a un elemetno si fue construido con el
+
+Pattern Matching:
+	- Es para preguntar en lugar de describri valores("desarmar" --o "deconstruir" en lugar de "construir")
+
+Como me doy centa si el constructor construye o destruye?
+	Si el constructor esta del lado de los parametros, entonces es una pregunta. Si se usa del lado de los datos, construye.
+
+Ejemplo*
+
+esPote :: Helado -> Bool
+esPote (Vasito g) = False
+esPote (Cucurucho g1 g2) = False
+esPote (Pote g1 g2 g3) = True
+Constructores para preguntar
+
+esPote (chocoHelate poteDeUnGusto)
+	-------------------------
+--------------------------------- * este es el que habria que reducir, pero como no se puede trabjar con el, avanza el 2do.
+
+ como no hay exposiciones se de la prioridad por una
+reducción" https://youtu.be/d-DocFmRdQc?t=5010 *
+
+
+Queda asi
+
+esPote (chocoHelate poteDeUnGusto)
+->
+esPote (poteDeUnGusto Chocolate)
+-> 				(vuelve a psar lo mismo xque esta bloqueado)
+esPote (Pote Chocolate Chocolate Chocolate)
+		g1	g2	  g3
+
+
+--------------------
+
+Como funciona el pattern matching? https://youtu.be/d-DocFmRdQc?t=5141 * 
+	- el argumento se reduce en los mínimos necesarios para saber qué ecuación usar ni un paso más.
+	- ka determinacion se chequea en el orden de las ecuaciones
+	- cuando el argumento coincide con el
+pattern o sea está hecho con ese constructor los nombres que tiene el patrón como argumentos toman como valor
+los correspondientes.
+
+Una vez hecho lo de arriba, podemos realizar la reduccion como siemopre.
+
+Patterns especiales que indican ignorar el argumento
+
+esPote :: Helado -> Bool
+esPote (Pote _ _ _) = True
+esPote _ = False
+
+' _ ' no es una expresion
+
+esPote :: Helado -> Bool
+esPote _ = False
+esPote (Pote _ _ _) = True
+
+Esto eststa mal, siempre va dar false
+
+
+----------------
+
+Pattern Matching ¿por qué el nombre?
+	- Pattern (esquema, patron)
+		- Expresion hecha de contructore y variables distitnas
+		- usada solamente como parametro(NO argumento)
+		- Funciona como pregunta
+	- Matchinf(concidencia, correspondencia)
+		- Operacion asociada a un pattern
+		- inspecciona una expresion y coincide o no
+		- si concide liga las variables.
+
+Fidel lo entiende como Coincidencia de esquemas(en otros ladeos como "correspondencia de aptrones")
+
+-------------------
+
+Uso de variables en el pattern:
+
+gustoSerio :: Gusto -> Gusto
+gustoSerio :: Frtuilla = Chocolate * Esta son descripciones 
+gustoSerio :: g * Esta son preguntas = g 
+	
+
+heladoSerio ( Vasito g ) = Vasito (gustoSerio g)
+heladoSerio ( Cucurucho g1 g2) = Vasito (gustoSerio g1) (gustoSerio g2)
+
+heladoSerio ( Cucurucho Frutilla Sambayon)
+->
+Cucurucho (gustoSerio Frutilla) (gustoSerio Sambayon)
+->
+Cucurucho Chocolate (gustoSerio Sambayon)
+->
+Cucurucho Chocolate Sambayon
+
+--------------
+
+sacarUnGusto :: Helado -> Helado
+-- Precond: no puede ser un vasito
+
+sacarUnGusto ( Cucurucho g1 _) = Vasito g1 * Si es bottom el gusto, no pasa nada. Sera un vasito de tbottom. La funcion es total y 
+sacarUnGusto ( Pote g1 g2 _) = Cucurucho g1 g1
+sacarUnGusto _ 			= error "No puedo sacar nada"
+
+--------------------------
+
+TIPO ALGEBRAICOS CON PARAMETROS * https://youtu.be/d-DocFmRdQc?t=6728
+
+
+Una declaracion de un tipo puede estar parametrizado
+	- data Par a = DosCosas a a
+
+No tiene sentido escribir 'Par' solo, no es como las funciones. 
+
+	- Par Helado, Par Gusto, Par( Par Int) * https://youtu.be/d-DocFmRdQc?t=6861
+	DosCosas (DosCosas 8 8) (DosCosas 4 4) 
+		:: Par (Par Int)
+
+-----------------------------
+
+Cuantas monedad tenes en el bolsillo * https://youtu.be/d-DocFmRdQc?t=7194
+
+https://youtu.be/d-DocFmRdQc?t=7359 * Maybe
+
+data Maybe a = Nothing | Just a
+
+cuantasMonedas :: Persona -> Maybe Int
+	- Que elementos hay en Maybe Int?
+		- Nothing, no hay bolsillo
+		- Just 0, hay bolsillo pero no monedas
+		- Just 1, hay bolsillo y una moneda
+		- Bottom, BOOM!
+		- Just Bottom, se mira el bolsillo y BOOM!
+
+Podemos usar Maybe cuando la respuesta no la conozco.
+
+Si voy a buscar una palabra a un Diccionario, te puedo dar Maybe de la definicion.
+
+-----------------------------
+
+Por que se llaman tipos algebraicos? https://youtu.be/d-DocFmRdQc?t=7516 *
+
+	- la respuesta correcta es porque tienen dos características importantes toda combinación válida de construcciones y
+valores es un elemento del tipo.  no hay manera de que yo pueda restringir
+construir algo si hay algo que se puede construir vale es un elemento.
+	- Dos elementos son iguales cuando estans construidos de la misma manera. Si tienen distintos argumentos, son distintos.
+
+Se llama asi por el algebra libre de los constructores.
+
+Hay cosas que yo no voy a poder definir. 
+
+Numeros complejos https://youtu.be/d-DocFmRdQc?t=7856 *
+
+Numero racionales https://youtu.be/d-DocFmRdQc?t=7919 * (1/0) -> indifinido
+
+Hay tipos que NO se pueden representar directamente como tipos algebraicos(ej. los racionales)
+	- Son necesarios mas herramientas
+		- tipos abstractos de datos
+		- Existen enfoques algebraicos a los TADS (Tipo Abstractos de Datos)
+	- Exeden el alcance de este curso
+
+----------
+Que se puede construir con tipos algebraicos? https://youtu.be/d-DocFmRdQc?t=8497 *
+
+Tipos producto:
+	Un unico constructor varios argumetnos
+	- eg: Par, Pokemon
+		data Pokemon = Catchem Nombre Tipo Nivel
+	Que otros producos pueden pensarse?
+		Registros!! como intro.
+
+Tipos variante(o suma) https://youtu.be/d-DocFmRdQc?t=8547 *
+	Muchos constructor con argumetnos
+	- eg: Helado, Maybe, etc.
+		data Shape = Circle Float | Rectangle Float Float
+	Que otros sumas pueden pensarse?
+		- Cuentas bancarias, helados, etc.
+
+Tipos recursivos estructurales:
+	. El tipo definido aparece como argumento
+		- Listas, arboles.
+
+https://youtu.be/d-DocFmRdQc?t=8636 * Otross tipos de combinados con otras caracteristicas.
+Las montañas rusas no entran en lso parciales
+
+* MIRAR LOS ULTIMOS 10'
+
+
+

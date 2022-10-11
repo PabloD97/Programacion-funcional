@@ -1,0 +1,66 @@
+Practica-3 online
+
+En haskell todo, esta currificado.
+
+*Loquisimo lo de suma 18:12
+
+18:15 * twice
+Xque invirtio lo de flip 18:16
+
+ufff la explicacion de secuencia 18:18
+
+La difinicion de carry y uncarry 18:19
+
+Carry toma cosas separadas y las juntas.
+Uncurry es al reves. 18:20*
+
+Como vamos a definir las funciones ahora 18:21
+
+first = juntar const
+
+Ejercicio 4 18:25*
+
+Los parentesis siempre a izq cuando tengo muchos parametros
+
+La de quitar los parentesis 18:26*
+
+Como dar tipo en apply apply apply 18:28 *
+
+Eejercicio 6 18:33 *
+
+Reveer 18:34 hasta 39(juega con juntar y separar)
+
+El sistema de tipos no tiene nada que ver con las equivalencias, aca. 18:41
+
+--------------
+
+El ultimo ejerccio de la practica 18:48 * 
+
+ufff que locura 18:55 *
+
+f . id = ??
+f . id = f
+
+Neutro de la suma 19:00* 
+Neutro de la composicion de la funcion = id 
+
+------------ 
+
+Ejercicio 8 19:06 *
+
+Ejercicio 10 19:12 * Seccion de operaciones 19:14
+
+El + suelto no puede ir, tiene que ir entre parentesis (+) 
+
+El modulo en haskell * 19:19
+
+PotenciaDeDos 19:21 * 
+
+y 25* termina todo lo que es operadores en haskell
+
+4:C 19:25 Como funciona twice
+
+6:E 19:31 *
+
+6:D 19:36
+

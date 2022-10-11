@@ -1,0 +1,304 @@
+Motivacion: * https://youtu.be/vrae0isqwNM?t=636
+- Se presemntaron visiones denotacional y operacional
+- Se presento la equivalencia (=) entre expresiones
+	- Equivalentes sigina que tienen el mismo significaod
+
+-------------
+
+Propiedades y demostraciones?
+
+Que es una propiedad en este contexto? * https://youtu.be/vrae0isqwNM?t=952
+	- Es una afirmacion sobre alguna caracteristica de un elemento o conjunto que puede ser verdadera o falsa.
+
+	- Ejemplos:	
+		- 2 es un numero primo
+		- cuadruple 2 = doble (doble 2)
+		- https://youtu.be/vrae0isqwNM?t=1049 * existe un número natural
+tal que para todo otro número natural ese número es más grande básicamente está diciendo hay un número natural más
+grande que todos los demás.
+
+	Las afirmaciones las poodemos pensar como preguntes.
+		- ¿2 es un numero primo? Si
+
+	Para saber si una propiedad es verdadera o falsa, se la puede plantear como una pregunta para responder por si o no.
+
+	Algo malo de matematica, es que siempre planteamos las propiedades como verdaderas.
+
+.............
+
+DEMOSTRACION * https://youtu.be/vrae0isqwNM?t=1225
+
+Que es una demostracion de una propiedad?
+	- Una argumentcion que hace evidente que es verdadera
+		- puede ser algo sencillo, o muy complejo.
+
+
+	Ejemplo 
+		- ¿2 es un numero primo?
+			- Los unicos divisores de 2 son -2, -1, 2 y 2
+			- por definicion de primo, 2 es primo
+			- la propiedad es verdadera
+
+	Si la propiedad es falsa, NO se puede demostrar *
+	- La justificacion de la respuesta
+	- la serie de pasos que explica la respuesta
+
+------------------
+
+Que maneras hay de hacer demostraciones?
+	- De forma manual
+		- de manera formal( reglas estrictas de formacion)
+	- De forma automatica(solo para ciertas propiedades)
+		- un programa verifica la propiedad.(un sisema de tipos, verificadores de modelos, SAT-solvers)
+
+	- Por construccion
+		- Se siguen reglas para encontrar los elementos.
+		(Resolucion de ecuaciones, derivacion de programas)
+
+Nos concentraremos en demostraciones manueles de propiedades de equivalencias de manera semi formal * https://youtu.be/vrae0isqwNM?t=1778
+	- Se comienza con na expresion
+	- Se la transforma paso a paso a traves de reglas conocidas(definiciones, otras propiedades)
+	- Para presentar, escribir de una expresion por linea intercaladas por la relacion entre lineas, justificada.
+		- Usualmente el simbolo es equivalencia.
+
+-----------------------------------
+
+Prop.: ¿cuadruple 2 = doble (doble 2)?
+Dem: cuadruple 2 
+     -----------
+   = 		(def. de cuadruple, con x <- 2)
+   	4*2
+   =		(aritmetica)
+	4+4
+   =		(def. de doble, con x <-4)
+	doble 4 
+   =		(aritmetica)
+	doble (2+2)
+   =		(def. de doble, con x <-2)
+	doble (doble 2)
+* hAY que poner una expresion por renglon y poner el = con su justificacion (def)
+
+
+Forma arletnatica de presentar una demostracion(no recomendada)
+
+cuadruple 2 = 4*2 = 4+4 = doble 4 = doble (2+2) = doble (doble 2) 
+
+* Ysalen flechas en los = mostrando las definiciones
+
+* Nos va poner mal si hacemos eso
+
+-----------
+
+Como se vinculan las igualdesdes?
+
+	cuadruple 2 = doble (dbole 2)
+Si y solo si 
+	4*2 = doble(doble 2)
+Si y solo si
+	4+4 = doble (doble 2)
+Si y solo si
+	4+4 = doble (2+2)
+Si y solo si
+	4+4 = doble 4
+Si y solo si
+	4+4 = 4+4
+
+* No redomendable
+
+* Subrayar lo que se va a reemplazar
+
+--------------
+
+* Una propiedad ya demostrada, l podemos reutilizar utilizando LEMA
+Prop.:¿succ (cuadruple 2? = succ (doble (doble2))?
+Dem: 	succ (cuadruple 2 ) https://youtu.be/vrae0isqwNM?t=2820 *
+   = 		(prop. anteriormente demostrada - LEMA)
+	succ ( doble ( doble 2)
+	
+	Observar:
+		- no es necesario volver a analizar los pasos anteriores
+		- no hace falta saber la deficnicion de succ
+	Se puede usar la demostracion ya hecha
+		- como si fuese una subtarea( procedimeinto o funcion auxiliar)
+		- un lema es una propiedad que funciona como subtarea
+
+https://youtu.be/vrae0isqwNM?t=3317 Isomorfismo de Curry-Howard *
+
+Ventajas de las demostraciones formales:  *
+	- La estrategia de demostracion es explicita
+		- los lemas funcionan como subtareas
+	- La soluicion es facil de leer y verificar
+	- Puede refinarse agreando detalles
+	- Puede desarrollarse programas que ayudan a construir, chequear y revisar pruebas de este tipo.
+
+-------------
+Equivalencias de funciones https://youtu.be/vrae0isqwNM?t=3708 * 
+
+Para que ¿f (denote) = g?		¿para todo x |  f x = gx?
+
+- https://youtu.be/vrae0isqwNM?t=3865 * 
+
+Ambas preguntas se rompenden igual. 
+
+Principio de extersionalidad. https://youtu.be/vrae0isqwNM?t=4087 *
+Lo que hace, es cubrir a la funcion en toda su extensionalidad.
+Agarra una funcion de orden n y la compara con una de orden - 1
+
+
+PRINCIPIO DE EXTENSIONALIDAD https://youtu.be/vrae0isqwNM?t=4300 *
+
+Prop.: ¿twice doble = cuadruple? https://youtu.be/vrae0isqwNM?t=4444 * 
+Dem .: Por el principio de extensionalidad, es equivalente demostrar que
+	¿para todo x. [twice doble] x = [cuadruple] x?
+	
+
+Principio de extensionalidad ¿f=g? es equivalente a ¿para todo x(de tipo a). f x = g x?
+
+https://youtu.be/vrae0isqwNM?t=4797 * la metavariable es un hueco a llenar
+
+---------
+
+Como demostramos un para todo? Problema, pueden ser infinitos * https://youtu.be/vrae0isqwNM?t=4840
+	- Una forma es elegir un elemento arbitrario del conjunto, y demostrarlo para ese elemento.
+
+	¿para todo x. twice doble x =cuadruple x?
+	- Sea *n* un numero cualquiera. Se vera que twice doble n = cuadruple n (ACA HABLAMOS DE UNA SOLA N Y ARRIBA DE INFINITAS X)
+Lado IZQ twice doble n
+	--------------
+  = 		(twice)
+	doble (doble n)
+  =		(doble)
+	doble (n+n)
+  =		(doble)
+	(n+n) + (n+n)
+
+
+Lado DER cuadruple n
+	 -----------
+  =		(cuadruple)
+	4*n
+  =		(aritm.)
+	(n+n) + (n+n)
+
+ * https://youtu.be/vrae0isqwNM?t=5518 Ambos lados llegan a lo mismo. Vala la propiedad
+
+--------------------
+
+Prop .: ¿twice twice =(\f x -> f (f (f (f x))) ? esto es una igualdad de orden 2
+Dom  .:  Por el ppoi. de ext., es equivalente demostrar que 
+	¿para todo f .  twice twice f = (\f x -> f (f (f (f x))) f(Esta f es la varibel)? Esto es una igualdad de orden 1
+
+https://youtu.be/vrae0isqwNM?t=6243 * Aplicando principio de extensionalidad
+
+Lo que tenemops que hacer para que la demostracion avance https://youtu.be/vrae0isqwNM?t=6275 * 
+
+Dem .: (...) Se vera que twice twice h e = (\f x -> f (f (f (f x))) h e
+		f	x
+Lado IQZ twice [twice] [h] e
+	 -------------------
+   =	 	(twice -- f<- twice, x <- h)	
+		f	   x
+	twice [(twice h)] [e]
+	-----------------
+   =		(twice -- f <- twice h, x <- e)
+	 f		f     x		
+	[ twice h] [(twice h [e])]
+   =		(twice -- f <- h, x <- twice h e)
+	h (h (twice h e)	
+   =		(twice -- f <- h, x <-e)
+	h ( h ( h ( h e)))
+
+Lado DER (\f x -> f (f (f (f x))) h e
+	 --------------------------
+  =		(regla beta, f<-h)
+	(\x -> h (h ( h ( h x))) e
+  =
+		(regla beta. x <- e)
+  =
+	h (h (h (h e))	
+
+---------------------------
+https://youtu.be/vrae0isqwNM?t=6617 * 
+Prop .: ¿curry suma' = suma?
+Dem .: 
+
+--------------------------
+
+MOTIVACION DEL PRINCIPIO DE INDUCCION https://youtu.be/vrae0isqwNM?t=7382 * 
+
+Que es un principio? Es una propiedad que se cumple. Es parte constitutiva de la teoria que estamos trabjaando.
+"un principio entonces es una propiedad que vale por
+construcción de la teoría es algo que la teoría me garage me regala como algo
+gratis es una propiedad de la teoría "
+
+Explica factorial https://youtu.be/vrae0isqwNM?t=7705 *
+
+Prop .: ¿fact = factL?
+Dem  .: Por el ppio. de ext., es equivalente demostrar que
+	¿para todo x. fact x = factL x?
+	Sea n un numero. Se vera que fact n = factL n 
+
+	- La defincion de fact esta separa en caso
+	- Deben considerarse dferentes posibilidades para n
+	- Analisis de casos
+		- Caso n = 0
+		- Caso n =/ 0
+ https://youtu.be/vrae0isqwNM?t=7820 *
+
+	Caso n = 0)
+	¿fact 0 = factL 0?
+
+	Lado IZQ fact 0
+		= 	(fact. 1)
+		 1
+
+	Lado DET factL 0
+		= 	(fact. 1)
+		 1
+	------------------------------------
+	Caso n /= 0)
+	¿fact n = factL n?
+
+	Lado IZQ fact n
+		 ------
+	=		(fact.2 -- n <- n)
+		n * fact (n-1)
+	=		(aritm.)
+		fact (n-1) * n
+
+	Lado DER factL n
+		 ------
+	=		(fact.2 -- n <- n)
+		fact (n-1) * n
+	¿Que se requiere para que sean iguales?
+
+Al final no demostre nada. Me tuve que moder mi propia cola. No sirve. Nos falta una herramienta, para demostrar funciopnes recursivas.
+
+------------------
+
+Cuando vale fact (-1)? https://youtu.be/vrae0isqwNM?t=8251
+	factt (-1) = Bottom 
+
+Son ecuaciones orientadas? https://youtu.be/vrae0isqwNM?t=8352 
+	- Lo sorprendente es que funcione para n > 0...
+	
+Es similar a 
+f n = f n 
+
+https://youtu.be/vrae0isqwNM?t=8439 Problemas con ciertas ecuaciones * 
+
+Expresividad de los tipos algebraicos?
+	- Como definir tipos algebraicos con infinitos elemetnos? No existe. 
+
+------------
+
+Las 3 se soluciona con al misma herramienta https://youtu.be/vrae0isqwNM?t=8665 *
+	- Como saber si son ecuaciones orientadaS?
+	- Que falta para poder demostrar ene stos casos?
+	- Como definri tipos algebraicos con infinitos elementos?
+
+Para ser necesario induccion o recursion
+	- Realmente entendemos la induccion matematica?
+	- Que es la induccion? ¿Que es la recursion?
+
+* RESUMEN https://youtu.be/vrae0isqwNM?t=8721

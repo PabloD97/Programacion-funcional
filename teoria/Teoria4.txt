@@ -1,0 +1,298 @@
+REDUCCION* 
+
+Vamos a meternos de lleno en esto
+
+Repeter los pasos 2 y 3 hasta que no haya ninguna subexpresion que cumpla la condicion dada ppor 2
+        - encontrar una subexpresion que coincida con una isntancia del lado izquierdo de una ecuacion
+	- reemplazarla por la correspondiente instancia del lado derecho.
+
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=557
+*
+
+Esto se llama mecanismo de reduccion.
+
+En vez de decir lo que hace la reduccion expresion, lo vamos a llamar Redex https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=838 *
+
+Forma normal, expresion que no contieen redexes
+
+Nuestro mecanismo de reduccion queda de la siguiente forma
+	- Repetir hasta forma normal
+		Localizar un redex 
+		reemplazarlo
+
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp *
+
+Las tres propiedades de la reduccion
+	- Confluencia ¿La forma normal es la unica?
+	- Normalizacion ¿La forma normal siempre existe?
+	- Orden de reduccion ¿Importa en que orden se eligen los redexes?
+
+Confluencia https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=961 *
+
+En hackell hay concluencia
+
+Algo importante en esta materia, es preguntarnos cuales son las propeidades de lo que estamos haciendo. NO ME ALCANZA CON DECIR FUNCIOAN
+
+ -----------------------
+Normalizacion * https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1288
+
+Xque inf = inf + 1 es un redex https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1405 *  porque es la instancia del lado izquierdo de la ecuación *
+
+Si no hay ecuaciones, no se puede reducir. o sea no se puede reemplazar eso pero tampoco es una forma normal.  https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1716 *
+
+detect 21 es un redex, yo no me puedo dar cuenta que no es un redex.
+
+Toda funcion aplicada a un argumento es un redex queiras o no*
+
+Cuales son las formas de no llegar a forma normal? https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1771 *
+	- nunca termina de reducir(e.g. inf)
+	- no puedo seguir lerop no llego a formal normal(e.g. detect)
+Se llama normalizacion xque tiene que ver con la obtencion de la formal normal*
+
+Consecuencias de las falta de formas normales
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1896 *
+
+Precisamos un valor de error. Es como un aprche, al no andar bien el sistema de deruccion.
+
+Le vamos a poner de bombre 
+Valor de error : BOTTOM ( T(Mirando para abajo y verde))
+* Es verde xque denota un valor 
+
+	-Valor teorico que representa a un error de computo.
+		- la reduccion no termina
+		- la reduccion no llega a destino
+
+es una restricción impuesta por la
+naturaleza de las máquinas
+ 
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=2219 * 
+
+BOTTON esta en el mundo de los valores, BOTTON no se puede manejar de manera operacional. O sea, en el mundo operacional no hay BOTTON. En el mundo operacional, lo que hay es o no termina o no termina.
+En el mundo DENOTACIONAL, si hay BOTTON. No puedo detectar mecanicamente un BOTTON
+
+BOTTON es un valor especial-
+	- Usamos el simbolo T (Pa abajo) para denotarlo
+		- Observar que es de color verde
+		- No existe por si mismo en el mundo de las expresiones.
+		- Es el valor de las expresiones que no terminan o no llegan a forma normal, un valor de error.
+
+"no es que no va a formar porque la reducción voy a poder hacer expresiones cuyo significado sea botón
+pero yo no voy a poder preguntarle a alguien vos sos botón"
+
+
+Xque su llama bottom?
+	- En ingles significa "el fondo", "lo de mas abnajo"
+	- eS EL VALOR CON MENOS SIGNIFICADO.
+	- El BOOM de gobstones es Bottom 
+
+Esta en el fondo de las cadenas de significados. 
+
+Pensamos en el BOTTOM como una caja bomba, si la abro exploto por los aires* 
+
+Hay expresiones que no termian de todos los tipos:
+	- bb = not bb
+	- bc = if False thne 'a' else bc
+
+Hay botton en char, int, bool. Hay botton en cada tipo de valor, todos los conjuntos de valores tienen un valor de error. 
+
+Es de tipo parametrico, se puede instanciar en distintos tipos.
+
+Se puede definir una expresion polimorfica que dé ┴(Invertida)? https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=2733 *
+
+bottom :: a
+bottom :: bottom
+
+En Haskeel, la version que se cuelga se llama undefined. Es un redex, pero no hay forma normal.
+
+En haskell viene una version predefinida en hackell
+	- error :: String -> a
+* https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=2882 
+
+Para que sirve el string del argumento? https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=2926 * 
+Para que la persona a la que le exploto el programa, sepa xque.
+
+* este es un botton entero
+inf :: Int
+inf = ┴
+
+* este es un bottom boleano
+bb = Bool
+bb = ┴
+
+* este es un bottom generico que se puede isntanciar a cualquiera de los dos.
+xque tiene este tipo https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=3244 *
+error "" :: a
+error "" = ┴
+
+bottom :: a 
+bottom = ┴
+
+Que queire decir que no se puede observar operacionalmente si una expesion denota ┴?
+	- el valor ┴ no es observable operacionalmente
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=3576 * 
+
+Que valor nos da hpDiscr 2? definicione hpDiscr x = if(x== bottom) then 1 else 0
+
+* https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=3729
+
+Como se reduce el  == ? Bottom no se puede preguntar si es igual a otra cosa, esto da error!
+
+hpDiscr 2, nunca se termina de ejecutar
+ 
+hpDiscr 2 = ┴
+
+if (bottom==bottom) ? 
+da ┴ hace boom.
+
+hpDiscr bottom = ┴
+hpDiscr (error "") = ┴
+
+Observar el abuso de notacion
+Por lo tanto, hpDiscr = \x ->  ┴
+
+------------
+
+BOTTOM Y FUNCIONES https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=4830 * 
+
+Puede una funcion devolver  ┴ al recibir algo totalmente definido?
+	- Nos lleva a pensar en el valor de  ┴ en los resultados	
+	- Funciones parciales y totales
+Puede devolver algo distinto de  ┴ cuando recibe  ┴?
+	- Nos lleva a pensar en el  valor de ┴ en los argumentos
+	- Funciones estrictas y no estrictas
+
+por ahora totalmente definido es igual a =/  ┴
+
+*
+Si la funcion me devuelve siempre algo  =/  ┴, es total
+Si la funcion me puede devolver  ┴, es parcial.
+Si a la fucnion le paso  ┴ y me devuelve  ┴, es estricta
+Si a la funcion le paso  ┴ y puede no devovlerme  ┴, es no estricta.
+*
+
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=5051 *
+
+detect :: Int -> Bool
+detect 42 = true
+detect 0 esto da bottom
+
+succ :: Int -> Int
+succ x = x + 1
+succ ┴ = ┴ , Solo si recibo ┴ doy ┴
+
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=5116 Como darme cuenta si una funcion es parcial o total
+
+Si solo la flecha que de abajo da con botton, es total. Si alguna flecha de las de arriba, aputna para abajo, es parcial.
+
+Para tdo n =/  ┴, succ n =/  ┴
+succ es TOTAL
+
+Existe n =/  ┴, detect n = ┴
+detect es PARCIAL.
+
+En matematica no hay funciones parciales.
+
+Funcion total = Nunca da ┴ si recibe valores totalmente definidos
+Funcion parcial = Puede dar ┴ al recibir valores totalmente definidos
+
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=5611 * 
+el BOTTOM me permite tener el BOTTOM me permite tener funciones que
+son equivalentes pero que se comportan diferente.
+
+Las tres son la misma funcion
+
+Const 2 bottom * https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=5954
+
+No se puede eelgir a convenencia que reducir.
+
+Existen DOS funciones const, una estricta y otra no estrictca.
+
+Los programadores imperativos, vivimos en un mundo estricto.
+
+Solo podemos elegir un cost. Todo depender del redex que elegimos
+
+- Las funciones que no precisan su argumento, tienen DOS versiones: una estricta y otra no estricta.
+
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=6384 *
+
+No,  no da igual reducir cualquier redex.
+
+---------------------------------------------
+
+ORDENES DE REDUCCION: https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=6425
+
+Ordenes mas comunes:
+	- si estan al mismo nivel, elige el de mas a la izquierda
+	- si estan uno dentro de otro, hay dos extremos.
+		- orden APLICATIVO	
+		- orden NORMAL 
+**
+Cuantos redex hay aca?
+	- doble (doble (doble 2)) Hay 3. 
+	ORDEN DE REDUCCION APLICATIVO*
+	Si yo elijo el mas interno de todos, debo cambiar asi
+	- doble (doble(2+2))
+
+	ORDEN DE REDUCCION NORMAL
+	Si elijo el mas externo de todos(a la izquierda)
+	doble (doble (doble 2))
+	->
+	doble (doble 2) + doble (doble 2) Cuantos redexes hay? CUATRO
+	"hay 4 y acá hice trampa porque no es 5 redex es porque la suma solo es un redex cuando los dos lados son formas normales.  si los argumentos de la suma tienen redex es la suma no es un revés "
+	->
+	(doble 2 + doble 2) + doble (doble 2) siempre a al ixquierda https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=6701 *
+	->
+
+const es estricta en ambos argumentos https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=6782 * 
+
+Al reducir (const 2 bottom) con orden aplicaitvo da ┴
+Al reducir (const 2 bottom) con orden normal da ┴
+Cual orden encuentra la forma normal si existe? 
+	- el orden normal(de ahi su nombre)
+Y xque el nombre de aplicativo para otro=
+	- proxque reduce el argumento antes de aplicar la funcion
+* 
+
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=7113 * 
+Vinculo entre orden de reduccion y el hecho de que una funcion sea estricta o no
+
+si yo implemento mi reducción con orden normal mi mundo es no estricto si yo implemento mi reducción con orden aplicativo mi mundo es estricto"
+
+En un lenguaje con efectos laterales(no puro) ES NECESARIO usar orden aplicativo. 
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=7235
+
+Que imprimiria const (2, printSucc(3))?
+	- con orden aplicativo "sume 1"
+	- con orden normal, no peudo saber, sin saber quien es f
+
+En x todas las funciones son estictas, lo use o no se rompe https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=7471
+
+Cuantas reducciones implica cada orden? https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=7775 * 
+
+quin x = x+x+x+x+x
+Que pasa con orden aplicativo de quin (fib 22)
+
+42 es la respuesta a la vida, el universo y todo lo demas.
+
+y const 2 (fib 22)? 
+con orden aplicativo ~1 millon de reducciones
+con orden normal: 1(una, solamente UNA)
+" porque el orden normal no
+ejecuta lo que no necesita"
+
+Orden de reduccion perezoso( lazy evaluation)
+https://youtu.be/u_Q1dP2g5FQ?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=8164 lazy evaluation * 
+
+Es lazy si recuerda que son copias, no es que las genera.
+
+Voler a mirar los ultimos 30' 
+
+Ventajas de la evaluacion lazy
+	- usualmente mayor eficiencia
+	- mejores condiciones de terminacion
+	- no hay necesidad de estructuras intermedias al componer funciones
+	- se pueden manipular estructuras y computos infinitos
+Desventajas de la evaluacion lazy
+	- es MUY dificil calcular el costo de ejecucion(pues depende del contexto en que se usa)
+
+¿Podemos decir entonces que en el orden aplicativo SIEMPRE se encuentra ⊥ en caso de que este metido adentro? SIEMPRE LO ENCUENTRA!
