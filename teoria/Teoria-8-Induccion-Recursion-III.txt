@@ -1,0 +1,61 @@
+YO TENGO QUE PRESUPONER QUE LAS PARTES QUE ESTOY USANDO EN LA DEMOSTRACION CUMPLEN . https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=892 *
+
+https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1413 Explicacion de evalN : N -> Int
+
+Juntarlos como chirimbolos https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1509 a evalN Z SN
+
+addN :: N -> N -> N >>>>>>>>>>>>>> Esto es una operacion de manipulacion simbolica
+
+¿para todo n. para todo m. evalN (addN n m) = evalN n + evalN m? https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=1860
+
+La induccion estructural, organiza todo practicamente. 
+
+Princpio de extensionalidad.
+¿f=g?
+	es equivalente a
+¿para todo x. f x = g x?
+
+Expresiones aritmeticas
+https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=2150 * 
+
+Como hizo resoluciond e manera operacional https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=3151 *
+
+Buscamos transmitir ideas, no programar makinas.
+
+---------------
+
+Se puieden hacer operacioes sobre los simbolos 
+Una vez mas: NO hace falta conocer el significado
+https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=3788 *
+
+Siempre que se diga que voy a ahcer recursion estuctural, debo indicar sobre la escturctura de quien.
+
+-----------------
+
+https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=3988 Princpio de induccion estructural para ExpA
+
+---------------------
+
+ARBOLES ---- https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=4704 *
+
+Arboles binarios: definicion https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=4825 *
+
+	- Un tipo arbol es un tipo algebraico recursivo con al menso un constrcutor con dos o mas aprtes inductivas
+	- Se pueden usar todas las tecnicas visatas hasta ahora
+		- Propiedes de los tipos algebraicos, induccion y recursion, vision denotacional vs operacional, etc
+		- No existe un unico tipo de arboles.
+
+* El dato arbol, es una estructuras compleja con toda la informacion contenida en él.
+https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=5118 
+
+- La vision funcional de estructuras de datos es completamente diferente a la imperativa o de objetos.
+- No existe la idea de "posicion de memoria" ni la de "identidad"
+	- Tampoco que "un arbol 'conoce' a sus subarboles"
+
+Diagramas jerarquicos de arboles https://youtu.be/9CIqSAVran8?list=PL6lbGW3UNWzwKhrw2PtDZRruFjZWatjzp&t=5270 *
+
+
+
+
+
+

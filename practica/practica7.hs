@@ -183,8 +183,13 @@ esLineal (Bifurcacion m d1 d2) = False
 
 llenoDe :: Eq a => a -> Dungeon a -> Bool
 llenoDe e (Habitacion x)  	= e == x 
-llenoDe e (Pasaje m d)  	= llenoDe d
-llenoDe e (Bifurcacion m d1 d2) = False
+llenoDe e (Pasaje m d)  	= tieneE e m && llenoDe d
+llenoDe e (Bifurcacion m d1 d2) = 
+	tieneE e m 
+	&& llenoDe e d1
+	&& llenoDe e d2
 
+tieneE e Nothing = False
+tieneE e (Just x) = x == e
 -- todo lo que esta del lado izquierdo de la flecha, se llama constraints
 -- o condicion que tiene que cumplir un tipo.
